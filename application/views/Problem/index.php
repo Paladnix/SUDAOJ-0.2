@@ -1,5 +1,6 @@
 
 
+    <!-- 标签云 -->
    <div id="tagcloud" class="tagscloud">
         <ul>
             <li><a href="#">标签云</a></li>
@@ -29,7 +30,6 @@
 
 <!-- Left Side -->
 <div class="list">
-    <!-- 标签云 -->
 
 
 
