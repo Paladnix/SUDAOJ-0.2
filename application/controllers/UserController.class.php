@@ -87,5 +87,22 @@ class UserController extends Controller{
 
         $this->index();
     }
+
+    public function lostpw(){
+
+        $this->error("Coding...");
+    }
+
+
+    public function profile(){
+
+        $this->error("Coding...");
+    }
+
+
+    public function message(){
+
+        $this->error("Coding...");
+    }
 }
 

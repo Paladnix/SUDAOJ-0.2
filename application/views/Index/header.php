@@ -122,15 +122,15 @@
       <div class="modal-body login">
           <div class="login-form ">
             <form role="form" action="<?php echo APP_URL."/user/login"?>" method="post">
-            <div class="form-group">
+            <div class="form-group"><div class="pos">
               <input type="text" class="login-field" value="" placeholder="Enter your username" name="username" />
-            </div>
+            </div></div>
 
-            <div class="form-group">
+            <div class="form-group "><div class="pos">
               <input type="password" class="login-field" value="" placeholder="Password" name="password" />
-            </div>
+            </div></div>
 
-			<div class="form-group">
+			<div class="form-group lohin-pos">
 				<button type="submit" class="btn btn-primary-alt btn-block">Login</button>
 			</div>
             </form>
@@ -163,33 +163,33 @@
           <div class="login-form">
             <form role="form" action="<?php echo APP_URL."/user/register/"?>" method="post" onsubmit="return checkForm()">
 
-            <div class="form-group">
+            <div class="form-group"><div class="pos">
               <input type="text" class="login-field" value="" placeholder="Enter your truename" name="truename" />
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="form-group"><div class="pos">
               <input type="text" class="login-field" value="" placeholder="Enter your username/nickname" name="username" required="required"/>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="form-group"><div class="pos">
               <input type="password" class="login-field" value="" placeholder="Password" name="password" required="required" id="password"/>
-            </div>
-            <div class="form-group">
-              <input type="password" class="login-field" value="" placeholder="Repeat Password" name="passwordrepeat" /required="required" id="passwordrepeat">
-            </div>
+            </div></div>
+            <div class="form-group"><div class="pos">
+              <input type="password" class="login-field" value="" placeholder="Repeat Password" name="passwordrepeat" /required="required" id="passwordrepeat" />
+            </div></div>
 
-            <div class="form-group">
+            <div class="form-group"><div class="pos">
               <input type="text" class="login-field" value="" placeholder="Enter your E-mail" name="email" required="required"/>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="form-group"><div class="pos">
               <input type="text" class="login-field" value="" placeholder="Enter your telephone" name="tel" />
-            </div>
-			<div class="radio-custom radio-primary">
-			    <input type="radio" id="radioSex1" name="sex" value="male">
+            </div></div>
+			<div class="radio-custom radio-primary radio-pos"><div class="pos">
+			    <input type="radio" id="radioSex1" name="sex" value="male"/>
 				<label for="radioSex1">Male</label>
-			</div>
-			<div class="radio-custom radio-primary">
-			    <input type="radio" id="radioSex2" name="sex" value="female">
+			</div></div>
+			<div class="radio-custom radio-primary radio-pos"><div class="pos">
+			    <input type="radio" id="radioSex2" class="" name="sex" value="female" />
 				<label for="radioSex2">Female</label>
-			</div>
+			</div></div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary-alt btn-block">Register</button>
 			</div>

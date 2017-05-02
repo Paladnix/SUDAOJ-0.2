@@ -1,7 +1,41 @@
 
 <!-- Left Side -->
 <div class="list">
-    <ul class="menu-root">
+    <!-- 标签云 -->
+<div id="tagscloud">
+	<a href="#">标签云</a>
+	<a href="#" class="red">PHP</a>
+	<a href="#">瀑布流</a>
+	<a href="#">Tab</a>
+	<a href="#" class="blue">流体布局</a>
+	<a href="#">SEO</a>
+	<a href="#" class="red">彩蛋</a>
+	<a href="#" class="green">JavaScript</a>
+	<a href="#">miaov</a>
+	<a href="#" class="red">CSS</a>
+	<a href="#">asp.net</a>
+	<a href="#" class="blue">蓝色经典</a>
+	<a href="#">OOP</a>
+	<a href="#" class="red">Android</a>
+	<a href="#" class="blue">妙味茶馆</a>
+	<a href="#">dialog</a>
+	<a href="#" class="blue">淘客</a>
+	<a href="#">Pin</a>
+	<a href="#">微博</a>
+	<a href="#" class="green">IPhone</a>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    $("#tagscloud").windstagball({
+            radius:120,
+            speed:10
+        });
+    });
+</script>
+
+
+<ul class="menu-root">
         <li><h3>在线评测系统</h3></li>
         <li><a href="#title" class="sidebar-link current">首页</a></li>
         <li><a href="#团队" class="sidebar-link ">制作团队</a></li>
