@@ -9,3 +9,12 @@ function checkForm(){
     }
     return true;
 }
+
+function text_html(){
+
+    var reg = new RegExp("\r\n", "g");
+    $("#proForm").find("textarea").each(function(){
+        this.value = this.value.replace(reg,"<br>");
+    });
+
+}

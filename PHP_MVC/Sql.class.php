@@ -49,6 +49,8 @@ class Sql {
 
         try{
 
+            if( APP_DEBUG_FRA ) echo "<br><br>$sql<br><br>";
+                
             $sth = $this->_dbHandle->prepare($sql);
             
             $sth->execute();

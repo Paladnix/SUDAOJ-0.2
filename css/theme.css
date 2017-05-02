@@ -11,7 +11,7 @@
     background-image:url(../images/bg.png);
 }
 
-.pos{
+.content .pos{
     margin:0px auto;
     width: 70%; 
 }
@@ -82,45 +82,12 @@ width: 0;
     .tagscloud .green {color:green;}
 
 
+    .middle{
+        margin: 0px auto;
+        width:70%;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+div .middle{
+        margin: 0px auto;
+        width: auto;
+    }

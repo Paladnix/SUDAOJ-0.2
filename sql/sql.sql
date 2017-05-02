@@ -36,6 +36,7 @@ create table problem(
 	author varchar(32),
 	contest int default '0',
 	visable int default '0',
+    tag varchar(2014),
 	
 	primary key(pid)
 

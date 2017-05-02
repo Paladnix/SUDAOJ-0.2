@@ -51,17 +51,17 @@ document.addEventListener('DOMContentLoaded', function() {
 <script type="text/javascript">
     var settings = {
     //height of sphere container
-    height: 300,
+    height: 260,
     //width of sphere container
-    width: 300,
+    width: 260,
     //radius of sphere
     radius: 100,
     //rotation speed
-    speed: 0.1,
+    speed: 0.2,
     //sphere rotations slower
     slower: 0.9,
     //delay between update position
-    timer: 20.0,
+    timer: 5.0,
     //dependence of a font size on axis Z
     fontMultiplier: 15,
     //tag css stylies on mouse over

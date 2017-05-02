@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/bootstrap-theme.css">
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/bootstrap.css">
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/style.css">
+        <link rel="stylesheet" href="<?php echo APP_URL ?>/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/page.css">
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/theme.css">
@@ -42,8 +43,19 @@
                 </li>
 
                 <li><a href="<?php echo APP_URL ?>/" class="nav-link <?php if($controller == "Index") echo "current";?>">Home</a></li>
-                <li><a href="<?php echo APP_URL ?>/contest/" class="nav-link <?php if($controller == "Contest") echo "current";?>">Contest</a></li>
-                <li><a href="<?php echo APP_URL ?>/problem/" class="nav-link <?php if($controller == "Problem") echo "current";?>">Problem</a></li>
+                <li class="nav-dropdown-container">
+                    <a href="<?php echo APP_URL ?>/contest/" class="nav-link <?php if($controller == "Contest") echo "current";?>">Contest<span class="arrow"></span></a>
+                    <ul class="nav-dropdown">
+                        <li><a href="#createConModal" class="nav-link" data-toggle="modal" data-target="#createConModal" role="button">New Contest</a></li>
+                        <li><a href="<?php echo APP_URL ?>/contest/my/" class="nav-link" >My Contest</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown-container">
+                    <a href="<?php echo APP_URL ?>/problem/" class="nav-link <?php if($controller == "Problem") echo "current";?>">Problem<span class="arrow"></span></a>
+                    <ul class="nav-dropdown">
+                        <li><a href="#createProModal" class="nav-link" data-toggle="modal" data-target="#createProModal" role="button">New Problem</a></li>
+                    </ul>
+                </li>
                 <li><a href="<?php echo APP_URL ?>/guide/" class="nav-link <?php if($controller == "Guide") echo "current";?>">Guide</a></li>
 
             <?php if( isset( $_SESSION['username'] ) ) { ?>
@@ -130,7 +142,7 @@
               <input type="password" class="login-field" value="" placeholder="Password" name="password" />
             </div></div>
 
-			<div class="form-group lohin-pos">
+			<div class="form-group login-pos">
 				<button type="submit" class="btn btn-primary-alt btn-block">Login</button>
 			</div>
             </form>
@@ -208,6 +220,185 @@
 </div>
 
 
+
+<!-- New problem -->
+<div class="modal fade " id="createProModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <!-- header  -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create New Problem</h4>
+      </div>
+      <!-- Body -->
+      <div class="modal-body login">
+          <div class="login-form">
+            <form class="form-horizontal" method="POST" action="<?php echo APP_URL."/problem/create"?>" enctype="multipart/form-data" onsubmit="return text_html()">
+
+				<div class="form-group">
+					<label class="col-lg-2 control-label">题目名称</label>
+					<div class="col-lg-10">
+						<input type="name" placeholder="" class="form-control" name="pname" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">时限(C++)</label>
+					<div class="col-lg-10">
+						<input type="number" placeholder="毫秒" class="form-control" name="timeLimit" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">内存限制</label>
+					<div class="col-lg-10">
+						<input type="memory" placeholder="MB" class="form-control" name="memoryLimit" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">出题人</label>
+					<div class="col-lg-10">
+						<input type="memory" placeholder="" class="form-control" name="author" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">题目类型</label>
+					<div class="col-lg-10">
+						<input type="memory" placeholder="多个类型请用#隔开" class="form-control" name="tag" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">题目描述</label>
+					<div class="col-lg-10">
+						<textarea type="text" class="form-control" style="height:150px" name="discription" id="discription"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">Input</label>
+					<div class="col-lg-10">
+						<textarea type="text"  class="form-control" style="height:100px" name="input" id="input"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">Output</label>
+					<div class="col-lg-10">
+						<textarea type="text" class="form-control" style="height:100px" name="output"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">Sample Input</label>
+					<div class="col-lg-10">
+						<textarea type="text"  class="form-control" style="height:100px" name="inputCase"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">Sample Output</label>
+					<div class="col-lg-10">
+						<textarea type="text" class="form-control"style="height:100px" name="outputCase"></textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-2 control-label">读入文件</label>
+					<div class="col-lg-10">
+						<input type="file" class="" name="fileIN">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">输出文件</label>
+					<div class="col-lg-10">
+						<input type="file"  class="" name="fileOUT">
+					</div>
+				</div>
+                <input type="hidden" name="visable" value="1"/>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary-alt btn-block">Submit</button>
+			</div>
+            </form>
+          </div>
+      </div>
+      <!-- Footer -->
+      <!--
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+        -->
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade " id="createConModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <!-- header  -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create New Contest</h4>
+      </div>
+      <!-- Body -->
+      <div class="modal-body login">
+          <div class="login-form">
+            <form class="form-horizontal" method="POST" action="<?php echo APP_URL."/contest/create"?>" enctype="multipart/form-data" onsubmit="return checkForm()">
+				<div class="form-group">
+					<label class="col-lg-2 control-label">比赛名称</label>
+					<div class="col-lg-10">
+						<input type="name" placeholder="2016 新生赛-1" class="form-control" name=cname>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">开始时间</label>
+					<div class="col-lg-10">
+						<input type="datetime-local" placeholder="" class="form-control" name=timeStart>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">结束时间</label>
+					<div class="col-lg-10">
+						<input type="datetime-local" placeholder="" class="form-control" name=timeEnd>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-2 control-label">密码</label>
+					<div class="col-lg-10">
+						<input type="ID" placeholder="不填写即无密码" class="form-control" name=password>
+					</div>
+				</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary-alt btn-block">Submit</button>
+			</div>
+            </form>
+          </div>
+      </div>
+      <!-- Footer -->
+      <!--
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+        -->
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div id="main" class="fix-sidebar">
 
 
@@ -222,8 +413,19 @@
                 </li>
 
                 <li><a href="<?php echo APP_URL ?>/" class="nav-link <?php if($controller == "Index") echo "current";?>">Home</a></li>
-                <li><a href="<?php echo APP_URL ?>/contest/" class="nav-link <?php if($controller == "Contest") echo "current";?>">Contest</a></li>
-                <li><a href="<?php echo APP_URL ?>/problem/" class="nav-link <?php if($controller == "Problem") echo "current";?>">Problem</a></li>
+                <li class="nav-dropdown-container">
+                    <a href="<?php echo APP_URL ?>/contest/" class="nav-link <?php if($controller == "Contest") echo "current";?>">Contest<span class="arrow"></span></a>
+                    <ul class="nav-dropdown">
+                        <li><a href="#createConModal" class="nav-link" data-toggle="modal" data-target="#createConModal" role="button">New Contest</a></li>
+                        <li><a href="<?php echo APP_URL ?>/contest/my/" class="nav-link" >My Contest</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown-container">
+                    <a href="<?php echo APP_URL ?>/problem/" class="nav-link <?php if($controller == "Problem") echo "current";?>">Problem<span class="arrow"></span></a>
+                    <ul class="nav-dropdown">
+                        <li><a href="#createProModal" class="nav-link" data-toggle="modal" data-target="#createProModal" role="button">New Problem</a></li>
+                    </ul>
+                </li>
                 <li><a href="<?php echo APP_URL ?>/guide/" class="nav-link <?php if($controller == "Guide") echo "current";?>">Guide</a></li>
 
             <?php if( isset( $_SESSION['username'] ) ) { ?>

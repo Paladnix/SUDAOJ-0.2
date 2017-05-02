@@ -90,7 +90,7 @@ class View{
             if( APP_DEBUG_FRA )
                 echo "<br> $controllerLayout has not been find.<br>";
 
-            include($this->defaultLayout);
+            include($this->defaultError);
         } 
         
 

@@ -562,9 +562,8 @@ ul.demo li {
   left: 0;
   bottom: 0;
   padding: 40px 0 30px 60px;
-  width: 400px;
   margin-right: 20px;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
