@@ -6,6 +6,7 @@ class ContestController extends Controller{
 
         define('PAGE_TYPE', 'guide');
     
+        $this->assign('error', '暂时没有页面');
         $this->render('index');
     }
 

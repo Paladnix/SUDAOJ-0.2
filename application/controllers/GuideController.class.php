@@ -5,6 +5,7 @@ class GuideController extends Controller{
     public function index(){
 
         define('PAGE_TYPE', 'guide');
+        $this->assign('error', '暂时没有页面');
     
         $this->render('index');
     }
