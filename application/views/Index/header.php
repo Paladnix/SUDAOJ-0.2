@@ -240,24 +240,5 @@
             <?php } ?>
 
  
-
-
-
-
-            <?php /*
-                <li class="nav-dropdown-container ecosystem">
-                    <a class="nav-link">生态系统</a><span class="arrow"></span>
-                    <ul class="nav-dropdown">
-                        <li><h4>帮助</h4></li>
-                        <li><ul>
-                                <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
-                                <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
-                                <li><a href="https://github.com/vuejs-templates" class="nav-link" target="_blank">模板</a></li>
-                            </ul></li>
-                            <li><h4>信息</h4></li>
-                            <li><ul>
-                                    <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
-                                    <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">博客</a></li>
-                                    <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">工作</a></li>
  
                 </ul>
