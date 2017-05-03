@@ -69,8 +69,10 @@
             </div>
             <!-- Body -->
             <div class="modal-body login">
+                <h2 id="result"></h2>
+                <p id="message"></p>
                 <div class="login-form ">
-                    <form role="form" action="<?php echo APP_URL."/problem/submit"?>" method="post" enctype="multipart/form-data">
+                    <form role="form" id="proForm" action="<?php // echo APP_URL."/problem/submit"?>" method="" enctype="multipart/form-data">
                         <div class="form-group">
                             <div class="pos">
                                 <select name="compiler">
@@ -91,7 +93,7 @@
                             </div>
                         </div>
                         <div class="form-group login-pos">
-                            <button type="submit" class="btn btn-primary-alt btn-block">submit</button>
+                            <button id="submit" type="button" class="btn btn-primary-alt btn-block">submit</button>
                         </div>
                     </form>
                 </div>
@@ -99,3 +101,23 @@
         </div>
     </div>
 </div>
+<script>
+$(function(){
+    $("#submit").click(function(){
+        var form = new FormData(document.getElementById("proForm"));
+        $.ajax({
+            url: "<?php echo APP_URL ?>/problem/submit/",
+            type: "POST",
+            data: form,
+            success: function(data){
+                $("#result").html = data;
+            },
+            error: function(e){
+
+                $("$result").html = "连接错误，请刷新后重试";
+            }
+        });
+
+    });
+});
+</script>

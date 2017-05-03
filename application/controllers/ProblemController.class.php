@@ -168,7 +168,7 @@ class ProblemController extends Controller{
             $data['username'] = $_POST['username'];
             if(isset($_POST['cid']))
                 $data['cid'] = $_POST['cid'];
-        
+
         }
         else {
             exit("The service has not got message from the http url by the method of POST.");
@@ -184,6 +184,7 @@ class ProblemController extends Controller{
         } 
 
         $rid = $result;
+        $data['rid'] = $rid;
 
         $dir = "/home/judge/userCode/$rid/";
 
@@ -234,7 +235,7 @@ class ProblemController extends Controller{
         $result = (new ProblemModel)->updateSubmit($data_tmp, $where_tmp);
 
         if( $result == 0 ){
-            
+
             $this->error("更新题目提交数据时发生错误， 没有更新");
             return ;
         }
@@ -262,8 +263,44 @@ class ProblemController extends Controller{
          *  二者都没有的为绝对路径. 
          */
 
-        $result = $this->judge($data);
+        $data = $this->judge($data);
 
+        $data_tmp = array("rtime" => $data['rtime'], "rmemory" => $data['rmemory'], "status" => $data['result']);
+
+        $where_tmp = array("rid" => $rid);
+
+        if( !(new StatusModel)->update($data_tmp, $where_tmp)){
+
+            $this->error("更新 status 失败");
+            return ;
+        } 
+
+        if($data['result'] == "AC"){
+
+            echo "<h2 style='color:green;'>Accepted</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB";
+        }
+        else if($data['result'] == "WA")
+
+            echo "<h2 style='color:red;'>Wrong Answer</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB";
+
+        else if($data['result'] == "TLE")
+
+            echo "<h2 style='color:red;'>Time Limit Error</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB";
+
+        else if($data['result'] == "MLE")
+
+            echo "<h2 style='color:red;'>Memory Limit Error</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB";
+
+        else if($data['result'] == "CE")
+
+            echo "<h2 style='color:blue;'>Compiler Error</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB<br>".$data['message'];
+        else if($data['result'] == "RE")
+
+            echo "<h2 style='color:red;'>Runtime Error</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB<br>".$data['message'];
+
+        else echo "System error";
+
+        return ;
     }
 
     public function judge($data){
@@ -273,7 +310,7 @@ class ProblemController extends Controller{
 
         $data['userOut'] = "/home/judge/userOut/".$data['rid'].".out";
         $data['userExeDir'] = '/home/judge/userExe/'.$data['rid']."/";
-        
+
         if( ! is_dir($data['userExeDir']) && !mkdir($data['userExeDir']) ){
 
             $this->error("创建文件夹：".$data['userExe']."失败");
@@ -283,6 +320,31 @@ class ProblemController extends Controller{
         chmod($data['userExeDir'], 0777);
 
         $Judge = new Judge($data);
+
+        $data = array();
+
+        $result = $Judge->Compile();
+
+        if($result != 0){
+            /*
+             *  Compiler Error 需要特殊处理;
+             */
+            $data['result'] = "CE";
+            $data['message'] = $result;
+            $data['rtime'] = 0;
+            $data['rmemory'] = 0;
+            return $data;
+        }
+
+        $data = $Judge->Run();
+        if( $data['result'] == "Pre" ){
+
+            if( $Judge->Check() == 4){
+                $data['result'] = "AC";
+            }else $data['result'] = "WA";
+        }
+
+        return $data;
 
     }
 

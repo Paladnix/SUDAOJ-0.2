@@ -17,11 +17,11 @@
 
 class ProblemView extends View{
 
-/*
- * 如果这个页面组件增加
- * 重写 render() 渲染这个页面
- * 
- */
+    /*
+     * 如果这个页面组件增加
+     * 重写 render() 渲染这个页面
+     * 
+     */
     public function render( $action ){
 
         // 将数组中的键值对的键转换成同名的变量
@@ -36,7 +36,7 @@ class ProblemView extends View{
         $controllerProblem = APP_PATH.'application/views/Problem/problem.php';
         $controller = $this->_controller;
 
-// Header
+        // Header
         if(file_exists ($controllerHeader)){
             if( APP_DEBUG_FRA ) echo "<br><br><br>include $controllerHeader<br>";
 
@@ -48,32 +48,35 @@ class ProblemView extends View{
 
             if( APP_DEBUG_FRA ) echo "<br><br><br>include $controllerHeader failed.<br>";
         }
-// Tagcloud
+        // Tagcloud
         if( file_exists($controllerTagcloud) )   include($controllerTagcloud);
         else{
-            
+
             if( APP_DEBUG_FRA ) echo "<br> $controllerTagcloud has not been find.<br>";
             include($this->defaultError);
         } 
 
-// Body
+        // Body
         if( file_exists($controllerLayout) )   include($controllerLayout);
         else{
-            
+
             if( APP_DEBUG_FRA ) echo "<br> $controllerLayout has not been find.<br>";
             include($this->defaultError);
         } 
-// problem
-        if( file_exists($controllerProblem) )   include($controllerProblem);
-        else{
-            
-            if( APP_DEBUG_FRA ) echo "<br> $controllerProblem has not been find.<br>";
-            include($this->defaultError);
-        } 
-        
-// Footer       
+        // problem
+        if($this->_action == "show"){
+
+            if( file_exists($controllerProblem) )   include($controllerProblem);
+            else{
+
+                if( APP_DEBUG_FRA ) echo "<br> $controllerProblem has not been find.<br>";
+                include($this->defaultError);
+            } 
+        }
+
+        // Footer       
         if(file_exists($controllerFooter)){
-            
+
             if( APP_DEBUG_FRA ) echo "<br>include $controllerFooter<br>";
 
             include($controllerFooter);

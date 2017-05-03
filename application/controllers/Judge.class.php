@@ -2,65 +2,69 @@
 
 class Judge
 {
-    var $rid;         // rid
-    var $Code;        // 源文件
-    var $Compiler;    // 编译器
-    var $IN;          // 标准输入文件
-    var $OUT;         // 标准输出文件
-    var $User_out;    // 存放用户输出文件
-    var $Compile_out; // 存放编译后可执行文件夹路径
-    var $Pid;         // 题目编号
-    var $Time;        // 时间限制
-    var $Memory;      // 空间限制
+    protected $rid;         // rid
+    protected $Code;        // 源文件
+    protected $Compiler;    // 编译器
+    protected $IN;          // 标准输入文件
+    protected $OUT;         // 标准输出文件
+    protected $User_out;    // 存放用户输出文件
+    protected $Compile_out; // 存放编译后可执行文件夹路径
+    protected $pid;         // 题目编号
+    protected $Time;        // 时间限制
+    protected $Memory;      // 空间限制
+    protected $codeFile;
 
-    var $Exe;         // 编译后可执行文件完整路径
-    var $Command;     // 代码运行命令
+    protected $Exe;         // 编译后可执行文件完整路径
+    protected $Command;     // 代码运行命令
 
     function __construct($data)
     {
-        $pid = $data['pid'];
-        $rid = $data['rid'];
-        $Code = $data['codeFileDir'].$data['codeFileName'];
-        $Compiler = $data['compiler'];
-        $IN = $data['IN'];
-        $OUT = $data['OUT'];
-        $Compile_out = $data['userExe'];
-        $User_out = $data['userOut'];
-        $Time = $data['timeLimit'];
-        $Memory = $data['memoryLimit'];
+        $this->pid = $data['pid'];
+        $this->rid = $data['rid'];
+        $this->Code = $data['codeFileDir'].$data['codeFileName'];
+        $this->codeFile = $data['codeFileName'];
+        $this->Compiler = $data['compiler'];
+        $this->IN = $data['IN'];
+        $this->OUT = $data['OUT'];
+        $this->Compile_out = $data['userExeDir'];
+        $this->User_out = $data['userOut'];
+        $this->Time = $data['timeLimit'];
+        $this->Memory = $data['memoryLimit'];
     }
 
     /*
      * 编译的参数对java程序是必须的；因为要获取java的编译后的文件。 
      */
-    function Compile( $codeFile )
+    function Compile()
     {
         $sh = "";
 
-	    if( $Compiler == "g++" )
+	    if( $this->Compiler == "g++" )
         {
-            $Exe = $Compile_out.$rid;
+            $this->Exe = $this->Compile_out.$this->rid;
 
-            $sh = "g++ $Code -o $Exe"; 
+            $sh = "g++ $this->Code -o $this->Exe"; 
         }
-        else if( $Compiler == "javac" )
+        else if( $this->Compiler == "javac" )
         {
-            $sh = "javac $Code -d $Compile_out";
+            $sh = "javac $this->Code -d $this->Compile_out";
 
             // 截取java代码的类名以获得编译后可执行文件名；
-            $len = strlen($codeFile) - strpos($codeFile, ".java");
+            //$len = strlen($codeFile) - strpos($codeFile, ".java");
 
-            $sub = substr($codeFile, 0, $len);
+            $sub = substr($this->codeFile, 0, -5);
            
-            $Exe = $Compile_out.$sub;
+            $this->Exe = $this->Compile_out.$sub;
         }
-        else if( $Compiler == "python3" )
+        else if( $this->Compiler == "python3" )
         {
-            $sh = "mv $Code $Compile_out";
+            $sh = "mv $this->Code $this->Compile_out";
 
-            $Exe = $Compile_out.$rid."py";
+            $Exe = $this->Code;
         }
         
+        $result = "";
+
         exec("$sh 2>&1", $result);
        
         if($result == "")
@@ -74,23 +78,21 @@ class Judge
     {
         $sh = "";
 
-        if( $Compiler == "g++" )
+        if( $this->Compiler == "g++" )
         {
-            $Command = "";
-
-            $sh = "sudo su judge ./Run_C.sh $IN $Command $Exe $User_out$rid.out $Time $Memory";
+            $sh = " ./Run_C.sh $this->IN  $this->Exe $this->User_out $this->Time $this->Memory";
         }
-        else if( $Compiler == "javac")
+        else if( $this->Compiler == "javac")
         {
             $Command = "java";
 
-            $sh = "sudo su judge ./Run_Java.sh $IN $Command $Exe $User_out$rid.out $Time $Memory";
+            $sh = " ./Run_Java.sh $this->IN $Command $this->Exe $this->User_out $this->Time $this->Memory";
         }
-        else if( $Compiler == "python3" )
+        else if( $this->Compiler == "python3" )
         {
             $Command = "python3";
 
-            $sh = "sudo su judge ./Run_Py.sh $IN $Command $Exe $User_out$rid.out $Time $Memory";
+            $sh = " ./Run_Py.sh $this->IN $Command $this->Exe $this->User_out $this->Time $this->Memory";
         }
 
         exec("$sh 2>&1", $result);
@@ -103,7 +105,7 @@ class Judge
             $ret_str = $result[0];
 
         else $ret_str = $result[1];
-        
+/*        
         $len = strpos($result, " ");
 
         $ret_time = substr( $result, 0, $len-1 );
@@ -111,40 +113,43 @@ class Judge
         $minutes = substr( $ret_time, 0, strpos($ret_time, ":") - 1 );
         $seconds = substr( $ret_time, strpos($ret_time, ":"), 2 );
         $msec = substr( $ret_time, strpos($ret_time, ".") );
-        $time_use = ( $minutes * 60 + $seconds ) * 1000 + $msec * 10;
+ */
+        $mes = explode(" ", $ret_str);
 
-        $ret_memory = substr( $result, $len);
+        $time_use = $mes[0];
 
-        $memory_use = $ret_memory;
+        $memory_use = $mes[1];
 
-        if( $memory_use >= $Memory )
+        if( $memory_use >= $this->Memory * 1024 )
         {
-            return "Memory Limit Error";
+            return array("result" => "MLE", "rmemory" => $memory_use, "rtime" => $time_use);
         }
             
-        if( $time_use >= $Time )
-        {
-            return "Time Limit Error";
+        if( $time_use >= $this->Time )
+        { 
+            return array("result" => "TLE", "rmemory" => $memory_use, "rtime" => $time_use);
         }
 
-        if( $Count == 1 ) return "Y".$time_use.",".$memory_use;
+        if( $Count == 1 )
+
+            return array("result" => "Pre", "rmemory" => $memory_use, "rtime" => $time_use);
 
         // 没有成功运行
-        return "N".$result[0];
+        return array("result" => "RE", "rmemory" => $memory_use, "rtime" => $time_use, "message" => $result[1]);
     }
 
 
     function Check()
     {
-        $sh = " diff $IN $User_out$rid.out ";
+        $sh = " diff $this->IN $this->User_out";
 
         exec("$sh 2>&1", $result);
 
         if($result == "")
 
-            return "Accepted";
+            return 4; // AC
 
-        else return "Wrong Answer";
+        else return 7; // WA
     }
 
 ?>
