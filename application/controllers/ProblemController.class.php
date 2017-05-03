@@ -157,8 +157,134 @@ class ProblemController extends Controller{
     }
 
 
+    public function submit(){
+
+        $data = array();
+
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            $data['pid'] = $_POST['pid'];
+            $data['compiler'] = $_POST['compiler'];
+            $data['username'] = $_POST['username'];
+            if(isset($_POST['cid']))
+                $data['cid'] = $_POST['cid'];
+        
+        }
+        else {
+            exit("The service has not got message from the http url by the method of POST.");
+        }
+
+        $result = (new StatusModel)->add($data);
+
+        if( $result == array() ){
+
+            $this->error("提交失败");
+            return ;
+
+        } 
+
+        $rid = $result;
+
+        $dir = "/home/judge/userCode/$rid/";
+
+        if( ! is_dir($dir) && !mkdir($dir) ){
+
+            $this->error("创建文件夹：$dir 失败");
+            return ;
+        }
+
+        chmod($dir, 0777);
+/*
+        if($data['compiler'] == "g++")
+            $file = $dir."$rid.cpp";
+
+        else if($data['compiler'] == "javac")
+            $file = $dir."";
+
+        else if($data['compiler'] == "python3")
+            $file = $dir."$rid.py";
+        else {
+
+            $this->error("编译器选择失败");
+            return ;
+        }
+ */
+        if($_FILES["file"]["error"] ){
+
+            $this->error("上传文件$file失败");
+            return ;
+        }
+
+        $file = $_FILES['file']['name'];
+
+        if(! move_uploaded_file($_FILES["file"]["tmp_name"], $dir.$file)){
+
+            $this->error("文件$file 转储失败");
+            return ;
+        }
+
+        $data['codeFileName'] = $file;
+        $data['codeFileDir'] = $dir;
+        /*
+         *  更新problem 提交数据
+         */
+
+        $data_tmp = array("submit" => "submit+1");
+        $where_tmp = array("pid" => $data['pid']);
+        $result = (new ProblemModel)->updateSubmit($data_tmp, $where_tmp);
+
+        if( $result == 0 ){
+            
+            $this->error("更新题目提交数据时发生错误， 没有更新");
+            return ;
+        }
 
 
+        /*
+         *  获取题目的限制 
+         */
+        $result = (new ProblemModel)->selectLimit($where_tmp);
+
+        if( $result == 0){
+            $this->error("获取题目限制数据出错");
+            return ;
+        }
+
+        foreach($result as $row ){
+            $data['timeLimit'] = $row['timeLimit'];
+            $data['memoryLimit'] = $row['memoryLimit'];
+        }
+
+        /*
+         *  Judge
+         *  后缀Dir 的为存储路径，不包含到文件名
+         *  后缀Name 为单纯文件名，不包含路径
+         *  二者都没有的为绝对路径. 
+         */
+
+        $result = $this->judge($data);
+
+    }
+
+    public function judge($data){
+
+        $data['IN'] = "/home/judge/problemIO/".$data['pid']."/IN";
+        $data['OUT'] = "/home/judge/problemIO/".$data['pid']."/OUT";
+
+        $data['userOut'] = "/home/judge/userOut/".$data['rid'].".out";
+        $data['userExeDir'] = '/home/judge/userExe/'.$data['rid']."/";
+        
+        if( ! is_dir($data['userExeDir']) && !mkdir($data['userExeDir']) ){
+
+            $this->error("创建文件夹：".$data['userExe']."失败");
+            return ;
+        }
+
+        chmod($data['userExeDir'], 0777);
+
+        $Judge = new Judge($data);
+
+    }
 
 }
 

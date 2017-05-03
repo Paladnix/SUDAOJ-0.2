@@ -26,6 +26,13 @@ class ProblemModel extends Model {
         return $this->selectSQL($sql);
     }
 
+    public function selectLimit($data){
+
+        $sql = sprintf("select timeLimit, memoryLimit from `%s` where %s", $this->_table, $this->formatWhere($data));
+
+        return $this->selectSQL($sql);
+    }
+
     public function archive($data){
 
         if($data == array())
@@ -37,4 +44,11 @@ class ProblemModel extends Model {
 
     }
 
+    public function updateSubmit($data, $where){
+        
+        $sql = sprintf("update `%s` set %s where %s;", $this->_table, $ths->formatUpdate($data), $this->formatWhere($where));
+
+        return querySQL($sql);
+
+    }
 }

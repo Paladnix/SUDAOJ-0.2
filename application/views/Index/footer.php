@@ -4,7 +4,6 @@
 
 <script src="<?php echo APP_URL ?>/js/smooth-scroll.min.js"></script>
 <script src="<?php echo APP_URL ?>/js/common.js"></script>
-<script src="<?php echo APP_URL ?>/js/jquery-3.2.1.min.js"></script>
 <script src="<?php echo APP_URL ?>/js/vue.js"></script>
 <script src="<?php echo APP_URL ?>/js/jquery.knob.min.js"></script>
 <script src="<?php echo APP_URL ?>/js/jquery.pagination.js"></script>
@@ -52,9 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <script type="text/javascript">
     var settings = {
     //height of sphere container
-    height: 260,
+    height: 300,
     //width of sphere container
-    width: 260,
+    width: 300,
     //radius of sphere
     radius: 100,
     //rotation speed

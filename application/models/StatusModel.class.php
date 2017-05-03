@@ -4,9 +4,19 @@ class StatusModel extends Model {
 
     public function add( $data ){
 
-        $sql = sprintf("insert into `%s` %s", $this->_table, $this->formatInsert($data));
+        $sql = sprintf("insert into `%s` %s; select @@Identity as pid;", $this->_table, $this->formatInsert($data));
 
-        return $this->querySQL($sql);
+        try{
+
+            $sth = $this->_dbHandle->prepare($sql);
+            
+            $sth->execute();
+
+        }catch(PDOException $e){
+
+            exit("<br><br><br><br> $sql has throw an error: $e->getMessage()  <br>");
+        }
+        return $this->_dbHandle->lastInsertId();
     }
 
     public function select($data){

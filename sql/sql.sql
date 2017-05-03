@@ -45,15 +45,15 @@ create table problem(
 create table status(
 
 	rid int unsigned auto_increment,
-	pid int, 
+	pid int NOT NULL, 
 	status varchar(32), 
 	rtime float,
 	rmemory int,
-	owner varchar(32),
+	username varchar(32) not null,
 	compiler varchar(16),
 	submitTime timestamp default CURRENT_TIMESTAMP,
-	codeLength int,
-    contest int,
+	codeLength int ,
+    cid int default 0,
     
 	primary key(rid)
 	

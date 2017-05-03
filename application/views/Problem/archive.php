@@ -1,29 +1,3 @@
-<!-- 标签云 -->
-<div id="tagcloud" class="tagscloud">
-    <ul>
-        <li><a href="#">标签云</a></li>
-        <li><a href="#" class="red">PHP</a></li>
-        <li><a href="#">瀑布流</a></li>
-        <li><a href="#">Tab</a></li>
-        <li><a href="#">Tag</a></li>
-        <li><a href="#">AB</a></li>
-        <li><a href="#">白岩</a></li>
-        <li><a href="#">Char</a></li>
-        <li><a href="#">String</a></li>
-        <li><a href="#">图论</a></li>
-        <li><a href="#">DP</a></li>
-        <li><a href="#">暴力</a></li>
-        <li><a href="#">HJAH</a></li>
-        <li><a href="#">Tabs</a></li>
-        <li><a href="#">Taboyt</a></li>
-        <li><a href="#">Tabfg</a></li>
-        <li><a href="#">Tabqe</a></li>
-        <li><a href="#">Tabhf</a></li>
-        <li><a href="#">Tabs1</a></li>
-        <li><a href="#">Tabq</a></li>
-    </ul>
-</div>
-
 
 
 <!-- Left Side -->

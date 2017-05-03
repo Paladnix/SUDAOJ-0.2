@@ -558,6 +558,7 @@ ul.demo li {
 .sidebar {
   position: absolute;
   z-index: 10;
+  width:400px;
   top: 61px;
   left: 0;
   bottom: 0;
@@ -769,7 +770,7 @@ ul.demo li {
 }
 .content a {
   color: #42b983;
-  font-weight: 400;
+  font-weight: 500;
 }
 .content blockquote {
   margin: 2em 0;

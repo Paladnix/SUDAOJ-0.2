@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/google-code-prettify/prettify.css" />
 
         <script>window.PAGE_TYPE = "<?php echo PAGE_TYPE ?>"</script>
+<script src="<?php echo APP_URL ?>/js/jquery-3.2.1.min.js"></script>
     </head>
 
     <body class="docs" onload="prettyPrint()">
