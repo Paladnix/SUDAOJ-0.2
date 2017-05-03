@@ -101,6 +101,7 @@ jQuery('.lt_popover').popover();
 })( jQuery );
 
 
+    alert("AA");
  // knob
 $(function() {
     $(".dial").knob(); // knob

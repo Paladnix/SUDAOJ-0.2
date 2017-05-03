@@ -6,14 +6,38 @@ class ContestModel extends Model {
 
         $sql = sprintf("insert into `%s` %s", $this->_table, $this->formatInsert($data));
 
-        return $this->querySQL($sql);
+        if( APP_DEBUG_FRA )print_r($sql);
+
+        try{
+
+            $sth = $this->_dbHandle->prepare($sql);
+
+            $sth->execute();
+
+        }catch(PDOException $e){
+
+            exit("<br><br><br><br> $sql has throw an error: $e->getMessage()  <br>");
+        }
+        return $this->_dbHandle->lastInsertId();
+
     }
 
-    public function select($data){
+    public function select( $data ){
 
         $sql = sprintf("select * from `%s` where %s", $this->_table, $this->formatWhere($data));
 
+        if( APP_DEBUG_FRA ) print_r($sql);
+       
         return $this->selectSQL($sql);
     }
 
+    public function archive($data){
+
+        $sql = sprintf("select cid, cname, password, timeStart, timeEnd, author from `%s`;", $this->_table);
+
+        if(APP_DEBUG_FRA) print_r($sql);
+
+        return $this->selectSQL($sql);
+
+    }
 }

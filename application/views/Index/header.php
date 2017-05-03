@@ -189,7 +189,7 @@
             </div></div>
 
             <div class="form-group"><div class="pos">
-              <input type="text" class="login-field" value="" placeholder="Enter your E-mail" name="email" required="required"/>
+              <input type="email" class="login-field" value="" placeholder="Enter your E-mail" name="email" required="required"/>
             </div></div>
             <div class="form-group"><div class="pos">
               <input type="text" class="login-field" value="" placeholder="Enter your telephone" name="tel" />
@@ -342,25 +342,25 @@
 				<div class="form-group">
 					<label class="col-lg-2 control-label">比赛名称</label>
 					<div class="col-lg-10">
-						<input type="name" placeholder="2016 新生赛-1" class="form-control" name=cname>
+						<input type="name" placeholder="2016 新生赛-1" class="form-control" name="cname" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-2 control-label">开始时间</label>
 					<div class="col-lg-10">
-						<input type="datetime-local" placeholder="" class="form-control" name=timeStart>
+						<input type="datetime-local" placeholder="" class="form-control" name="timeStart" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-2 control-label">结束时间</label>
 					<div class="col-lg-10">
-						<input type="datetime-local" placeholder="" class="form-control" name=timeEnd>
+						<input type="datetime-local" placeholder="" class="form-control" name="timeEnd" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-2 control-label">密码</label>
 					<div class="col-lg-10">
-						<input type="ID" placeholder="不填写即无密码" class="form-control" name=password>
+						<input type="" placeholder="不填写即无密码" class="form-control" name="password" />
 					</div>
 				</div>
 

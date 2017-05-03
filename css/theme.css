@@ -91,3 +91,7 @@ div .middle{
         margin: 0px auto;
         width: auto;
     }
+
+    .progress{
+        border-radius:30px;
+    }

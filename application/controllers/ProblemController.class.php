@@ -14,7 +14,6 @@ class ProblemController extends Controller{
     public function error( $e ){
 
         $this->assign('error', $e);
-        define('PAGE_TYPE', 'guide');
 
         $this->render('error');
     }
@@ -54,7 +53,7 @@ class ProblemController extends Controller{
 
         $dir = "/home/judge/problemIO/$pid/";
 
-        if( !mkdir($dir) ){
+        if( ! is_dir($dir) && !mkdir($dir) ){
 
             $this->error("创建文件夹：$dir 失败");
             return ;

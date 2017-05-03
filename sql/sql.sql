@@ -51,7 +51,7 @@ create table status(
 	rmemory int,
 	owner varchar(32),
 	compiler varchar(16),
-	submitTime time,
+	submitTime timestamp default CURRENT_TIMESTAMP,
 	codeLength int,
     contest int,
     
@@ -63,11 +63,13 @@ create table contest(
 
 	cid int unsigned auto_increment,
 	cname varchar(128),
-	timeStart time,
-	timeEnd time,
+	timeStart datetime,
+	timeEnd datetime,
 	password varchar(20),
     problem varchar(1024),
-	author int NOT NULL,
+	author varchar(32) NOT NULL default 'admin',
+    introduction varchar(2014),
+    tip varchar(1024),
 	
 	primary key (cid)
 )engine=InnoDB auto_increment=1 default charset=utf8;

@@ -8,7 +8,8 @@
 <script src="<?php echo APP_URL ?>/js/vue.js"></script>
 <script src="<?php echo APP_URL ?>/js/jquery.knob.min.js"></script>
 <script src="<?php echo APP_URL ?>/js/jquery.pagination.js"></script>
-    <script type="text/javascript" src="https://rawgithub.com/dynamicguy/tagcloud/master/src/tagcloud.jquery.js"></script>
+<!-- <script src="<?php echo APP_URL ?>/js/main.js"></script> -->
+<script src="<?php echo APP_URL ?>/js/tagcloud.jquery.js"></script>
 <script src="<?php echo APP_URL ?>/js/my.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
