@@ -39,7 +39,7 @@ class Judge
     {
         $sh = "";
 
-	    if( $this->Compiler == "g++" )
+        if( $this->Compiler == "g++" )
         {
             $this->Exe = $this->Compile_out.$this->rid;
 
@@ -53,7 +53,7 @@ class Judge
             //$len = strlen($codeFile) - strpos($codeFile, ".java");
 
             $sub = substr($this->codeFile, 0, -5);
-           
+
             $this->Exe = $this->Compile_out.$sub;
         }
         else if( $this->Compiler == "python3" )
@@ -62,69 +62,74 @@ class Judge
 
             $Exe = $this->Code;
         }
-        
+
+        if( JUDGE_DEBUG ) print_r($sh);
+
         $result = "";
 
         exec("$sh 2>&1", $result);
-       
-        if($result == "")
-       
+
+        if (JUDGE_DEBUG ) print_r($result);
+
+        if($result == array() )
+
             return 0;
-       
+
         else return $result;
     }
 
     function Run()
     {
         $sh = "";
+        $Mem = $this->Memory * 3;
 
         if( $this->Compiler == "g++" )
         {
-            $sh = " ./Run_C.sh $this->IN  $this->Exe $this->User_out $this->Time $this->Memory";
+            $sh = "".APP_PATH."application/controllers/Run_C.sh $this->IN  $this->Exe $this->User_out $this->Time $Mem";
         }
         else if( $this->Compiler == "javac")
         {
             $Command = "java";
 
-            $sh = " ./Run_Java.sh $this->IN $Command $this->Exe $this->User_out $this->Time $this->Memory";
+            $sh = APP_PATH."application/controllers/Run_Java.sh $this->IN $Command $this->Exe $this->User_out $this->Time $Mem";
         }
         else if( $this->Compiler == "python3" )
         {
             $Command = "python3";
 
-            $sh = " ./Run_Py.sh $this->IN $Command $this->Exe $this->User_out $this->Time $this->Memory";
+            $sh = APP_PATH."application/controllers/Run_Py.sh $this->IN $Command $this->Exe $this->User_out $this->Time $Mem";
         }
+        if(JUDGE_DEBUG) print_r($sh);
 
         exec("$sh 2>&1", $result);
-
+        if(JUDGE_DEBUG)
+            print_r($result);
         // 成功运行，判断是否超时或超空间
         $Count = count($result);
-        
+
         if( $Count == 1 )
             // 程序属于正常退出。
             $ret_str = $result[0];
 
         else $ret_str = $result[1];
-/*        
-        $len = strpos($result, " ");
 
-        $ret_time = substr( $result, 0, $len-1 );
-         
-        $minutes = substr( $ret_time, 0, strpos($ret_time, ":") - 1 );
-        $seconds = substr( $ret_time, strpos($ret_time, ":"), 2 );
-        $msec = substr( $ret_time, strpos($ret_time, ".") );
- */
         $mes = explode(" ", $ret_str);
 
-        $time_use = $mes[0];
+        $ti = explode(":", $mes[0]);
+        $minutes = $ti[0];
+        $ti = explode(".", $ti[1]);
+        $seconds = $ti[0];
+        $msec = $ti[1];
+
+        $time_use = $minutes*60*1000 + $seconds*1000 + $msec*10;
 
         $memory_use = $mes[1];
 
-        if( $memory_use >= $this->Memory * 1024 )
+        if( $memory_use >= $this->Memory )
         {
             return array("result" => "MLE", "rmemory" => $memory_use, "rtime" => $time_use);
         }
-            
+
         if( $time_use >= $this->Time )
         { 
             return array("result" => "TLE", "rmemory" => $memory_use, "rtime" => $time_use);
@@ -141,15 +146,19 @@ class Judge
 
     function Check()
     {
-        $sh = " diff $this->IN $this->User_out";
+        $sh = " diff $this->OUT $this->User_out";
+
+        if(JUDGE_DEBUG)
+            print_r($sh);
 
         exec("$sh 2>&1", $result);
 
-        if($result == "")
+        if(JUDGE_DEBUG)
+            print_r($result);
+        if($result == array())
 
             return 4; // AC
 
         else return 7; // WA
     }
-
-?>
+}

@@ -230,7 +230,7 @@ class ProblemController extends Controller{
          *  更新problem 提交数据
          */
 
-        $data_tmp = array("submit" => "submit+1");
+        $data_tmp = array("submited" => "submited + 1");
         $where_tmp = array("pid" => $data['pid']);
         $result = (new ProblemModel)->updateSubmit($data_tmp, $where_tmp);
 
@@ -252,8 +252,8 @@ class ProblemController extends Controller{
         }
 
         foreach($result as $row ){
-            $data['timeLimit'] = $row['timeLimit'];
-            $data['memoryLimit'] = $row['memoryLimit'];
+            $data['timeLimit'] = $row['timeLimit']/1000;
+            $data['memoryLimit'] = $row['memoryLimit'] * 1024;
         }
 
         /*
@@ -291,12 +291,17 @@ class ProblemController extends Controller{
 
             echo "<h2 style='color:red;'>Memory Limit Error</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB";
 
-        else if($data['result'] == "CE")
+        else if($data['result'] == "CE"){
 
-            echo "<h2 style='color:blue;'>Compiler Error</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB<br>".$data['message'];
-        else if($data['result'] == "RE")
+            echo "<h2 style='color:blue;'>Compiler Error</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB<br>";
+            print_r($data['message']);
+        }
+        else if($data['result'] == "RE"){
 
-            echo "<h2 style='color:red;'>Runtime Error</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB<br>".$data['message'];
+            echo "<h2 style='color:red;'>Runtime Error</h2>Time: ".$data['rtime']." ms<br>Memory: ".$data['rmemory']." KB<br>";
+            print_r($data['message']);
+
+        }
 
         else echo "System error";
 
@@ -325,7 +330,7 @@ class ProblemController extends Controller{
 
         $result = $Judge->Compile();
 
-        if($result != 0){
+        if($result != 0 ){
             /*
              *  Compiler Error 需要特殊处理;
              */

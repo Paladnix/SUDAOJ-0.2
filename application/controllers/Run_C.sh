@@ -17,6 +17,5 @@ ulimit -t $TL
 
 ulimit -v $ML
 
-#echo "TL=${TL}   ML=${ML}"
 
 cat $IN | time -f "%E %M" $Command | cat > $OUT

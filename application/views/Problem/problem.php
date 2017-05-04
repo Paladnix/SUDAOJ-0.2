@@ -109,10 +109,14 @@ $(function(){
             url: "<?php echo APP_URL ?>/problem/submit/",
             type: "POST",
             data: form,
+            contentType:false,
+            processData:false,
             success: function(data){
-                $("#result").html = data;
+                $("#result").html(data);
             },
             error: function(e){
+
+                alert('Failed');
 
                 $("$result").html = "连接错误，请刷新后重试";
             }

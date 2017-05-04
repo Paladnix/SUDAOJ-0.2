@@ -46,9 +46,9 @@ class ProblemModel extends Model {
 
     public function updateSubmit($data, $where){
         
-        $sql = sprintf("update `%s` set %s where %s;", $this->_table, $ths->formatUpdate($data), $this->formatWhere($where));
+        $sql = sprintf("update `%s` set %s where %s;", $this->_table, $this->formatUpdate($data), $this->formatWhere($where));
 
-        return querySQL($sql);
+        return $this->querySQL($sql);
 
     }
 }

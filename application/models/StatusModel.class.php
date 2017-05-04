@@ -28,7 +28,7 @@ class StatusModel extends Model {
 
     public function update($data, $where){
 
-        $sql = sprintf("update `%s` %s where %s;", $this->_table, $this->formatUpdate($data), $this->formatWhere($where));
+        $sql = sprintf("update `%s` set %s where %s;", $this->_table, $this->formatUpdate($data), $this->formatWhere($where));
 
         return $this->querySQL($sql);
     }
