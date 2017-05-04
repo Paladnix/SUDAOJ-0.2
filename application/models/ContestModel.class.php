@@ -40,4 +40,17 @@ class ContestModel extends Model {
         return $this->selectSQL($sql);
 
     }
+
+    public function update($data, $where){
+        
+        $sql = sprintf("update `%s` set %s where %s", $this->_table, $this->formatUpdate($data), $this->formatWhere($where));
+
+        return $this->querySQL($sql);
+    }
+    public function addProblem($data, $where){
+
+        $sql = sprintf("update `%s` set problem=CONCAT(problem, \"%s#\") where %s", $this->_table, $data, $this->formatWhere($where));
+
+        return $this->querySQL($sql);
+    }
 }

@@ -6,8 +6,6 @@ class ContestController extends Controller{
 
         define('PAGE_TYPE', 'guide');
 
-        $this->assign('error', '暂时没有页面');
-
         $this->archive();
     }
 
@@ -28,6 +26,8 @@ class ContestController extends Controller{
             $data['timeStart'] = str_replace("T", " ", $_POST["timeStart"]);
             $data['timeEnd'] = str_replace("T", " ", $_POST["timeEnd"]);
             $data['password'] = $_POST["password"];
+            $data['author'] = $_POST["author"];
+            $data['introduction'] = $_POST["introduction"];
 
         }
         else {
@@ -51,6 +51,49 @@ class ContestController extends Controller{
 
     }
 
+    public function update( $params ){
+
+        $where = array();
+
+        foreach($params as $param){
+
+            $tmp = explode("=", $param);
+
+            $where[$tmp[0]] = $tmp[1];
+
+        }
+
+        $data = array();
+
+        if($_SERVER["REQUEST_METHOD"] == "POST")
+        {   
+            $data['cname'] = $_POST["cname"];
+            $data['timeStart'] = str_replace("T", " ", $_POST["timeStart"]);
+            $data['timeEnd'] = str_replace("T", " ", $_POST["timeEnd"]);
+            $data['password'] = $_POST["password"];
+            $data['author'] = $_POST["author"];
+            $data['introduction'] = $_POST["introduction"];
+
+        }
+        else {
+            exit("The service has not got message from the http url by the method of POST.");
+        }
+
+        $result = (new ContestModel)->update( $data , $where);
+
+        if( $result == 0 ) {
+
+            $this->error("更新失败, 如果未作改动请忽略此消息");
+            return ;
+
+        } 
+
+        $params[] = sprintf("cid=%s", $where['cid'] );
+
+        $this->show($params);
+
+    }
+
     public function show( $params ){
 
         $data = array();
@@ -68,8 +111,10 @@ class ContestController extends Controller{
         if($result == array()){
 
             $this->error("没有这场比赛");
+
             return ;
         }
+
 
         foreach($result as $row){
 
@@ -77,19 +122,25 @@ class ContestController extends Controller{
 
                 if($key == "problem"){
 
-                    if( $value != ""){
+                    if( $value != "#"){
 
                         $tmp = explode("#", $value);
+
+                        if( APP_DEBUG_FRA ) print_r($tmp);
 
                         $problems = array();
 
                         foreach($tmp as $pid){
 
+                            if($pid == "") continue;
+
                             $data = array("pid" => $pid);
 
                             $presult = (new ProblemModel)->select($data);
 
-                            $problems[$presult['pid']]  = $presult['pname'];
+                            if( APP_DEBUG_FRA ) print_r($presult);
+
+                            $problems[$presult[0]['pid']]  = $presult[0]['pname'];
                         }
 
                         $this->assign("problems", $problems);
@@ -97,7 +148,12 @@ class ContestController extends Controller{
                     }
 
                 }
-                $this->assign($key, $value);
+                else
+                {
+
+                    $value = str_replace("\n", "<br>", $value);
+                    $this->assign($key, $value);
+                }
 
             }
         }
@@ -111,7 +167,7 @@ class ContestController extends Controller{
         $data = array();
 
         if($params != NULL)
-        
+
             foreach($params as $param){
 
                 $tmp = explode("=", $param);

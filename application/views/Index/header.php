@@ -20,8 +20,8 @@
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/theme.css">
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/google-code-prettify/prettify.css" />
 
-        <script>window.PAGE_TYPE = "<?php echo PAGE_TYPE ?>"</script>
-<script src="<?php echo APP_URL ?>/js/jquery-3.2.1.min.js"></script>
+        <script>window.PAGE_TYPE = "Guide"</script>
+        <script src="<?php echo APP_URL ?>/js/jquery-3.2.1.min.js"></script>
     </head>
 
     <body class="docs" onload="prettyPrint()">
@@ -47,14 +47,14 @@
                 <li class="nav-dropdown-container">
                     <a href="<?php echo APP_URL ?>/contest/" class="nav-link <?php if($controller == "Contest") echo "current";?>">Contest<span class="arrow"></span></a>
                     <ul class="nav-dropdown">
-                        <li><a href="#createConModal" class="nav-link" data-toggle="modal" data-target="#createConModal" role="button">New Contest</a></li>
+                        <li><a href="<?php if(isset($_SESSION['username'])) echo "#createConModal"; else echo "#loginModal"; ?>" class="nav-link" data-toggle="modal" role="button">New Contest</a></li>
                         <li><a href="<?php echo APP_URL ?>/contest/my/" class="nav-link" >My Contest</a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown-container">
                     <a href="<?php echo APP_URL ?>/problem/" class="nav-link <?php if($controller == "Problem") echo "current";?>">Problem<span class="arrow"></span></a>
                     <ul class="nav-dropdown">
-                        <li><a href="#createProModal" class="nav-link" data-toggle="modal" data-target="#createProModal" role="button">New Problem</a></li>
+                        <li><a href="#createProModal" class="nav-link" id="newPro" data-toggle="modal" data-target="#createProModal" role="button">New Problem</a></li>
                     </ul>
                 </li>
                 <li><a href="<?php echo APP_URL ?>/guide/" class="nav-link <?php if($controller == "Guide") echo "current";?>">Guide</a></li>
@@ -73,50 +73,7 @@
                 <li><a href="#loginModal" class="nav-link" data-toggle="modal" data-target="#loginModal" role="button" >Login</a></li>
             <?php } ?>
 
- 
 
-
-
-
-            <?php /*
-                <li class="nav-dropdown-container ecosystem">
-                    <a class="nav-link">生态系统</a><span class="arrow"></span>
-                    <ul class="nav-dropdown">
-                        <li><h4>帮助</h4></li>
-                        <li><ul>
-                                <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
-                                <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
-                                <li><a href="https://github.com/vuejs-templates" class="nav-link" target="_blank">模板</a></li>
-                            </ul></li>
-                            <li><h4>信息</h4></li>
-                            <li><ul>
-                                    <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
-                                    <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">博客</a></li>
-                                    <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">工作</a></li>
-                                </ul></li>
-                                <li><h4>核心插件</h4></li>
-                                <li><ul>
-                                        <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
-                                        <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
-                                    </ul></li>
-                                    <li><h4>资源列表</h4></li>
-                                    <li><ul>
-                                            <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
-                                            <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
-                                        </ul></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown-container language">
-                    <a class="nav-link">多语言</a><span class="arrow"></span>
-                    <ul class="nav-dropdown">
-                        <li><a href="https://cn.vuejs.org/" class="nav-link" target="_blank">中文</a></li>
-                        <li><a href="https://vuejs.org/" class="nav-link" target="_blank">English</a></li>
-                        <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
-                        <li><a href="https://ru.vuejs.org/" class="nav-link" target="_blank">Русский</a></li>
-                        <li><a href="https://kr.vuejs.org/" class="nav-link" target="_blank">한국어</a></li>
-                    </ul>
-                </li>
-                */ ?>
             </ul>
         </div>
  
@@ -234,7 +191,7 @@
       <!-- Body -->
       <div class="modal-body login">
           <div class="login-form">
-            <form class="form-horizontal" method="POST" action="<?php echo APP_URL."/problem/create"?>" enctype="multipart/form-data" onsubmit="return text_html()">
+            <form id="CrtProForm" class="form-horizontal" method="POST" action="<?php if(isset($cid)) echo APP_URL."/problem/create"; else echo APP_URL."/problem/create";?>" enctype="multipart/form-data" onsubmit="return text_html()">
 
 				<div class="form-group">
 					<label class="col-lg-2 control-label">题目名称</label>
@@ -257,13 +214,13 @@
 				<div class="form-group">
 					<label class="col-lg-2 control-label">出题人</label>
 					<div class="col-lg-10">
-						<input type="memory" placeholder="" class="form-control" name="author" />
+						<input type="name" placeholder="" class="form-control" name="author" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-2 control-label">题目类型</label>
 					<div class="col-lg-10">
-						<input type="memory" placeholder="多个类型请用#隔开" class="form-control" name="tag" />
+						<input type="name" placeholder="多个类型请用#隔开" class="form-control" name="tag" />
 					</div>
 				</div>
 				<div class="form-group">
@@ -309,9 +266,19 @@
 						<input type="file"  class="" name="fileOUT">
 					</div>
 				</div>
-                <input type="hidden" name="visable" value="1"/>
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary-alt btn-block">Submit</button>
+                <?php if(isset($cid)) { ?>
+                    <input type="hidden" name="visable" value="0"/>
+                    <input type="hidden" name="cid" value="<?php echo $cid?>"/>
+                <?php } else {?>
+                    <input type="hidden" name="visable" value="1"/>
+                <?php } ?>
+            <div class="form-group">
+                <?php if(isset($cid)) { ?>
+				    <!-- <button type="button" id="ConProSub" class="btn btn-primary-alt btn-block">Submit</button> -->
+				    <button type="submit" id="" class="btn btn-primary-alt btn-block">Submit</button>
+                <?php } else {?>
+				    <button type="submit" id="" class="btn btn-primary-alt btn-block">Submit</button>
+                <?php } ?>
 			</div>
             </form>
           </div>
@@ -334,37 +301,43 @@
       <!-- header  -->
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create New Contest</h4>
+        <h4 class="modal-title" id="myModalLabel"><?php if(isset($cid)) echo $cname; else echo "Create New Contest"; ?></h4>
       </div>
       <!-- Body -->
       <div class="modal-body login">
           <div class="login-form">
-            <form class="form-horizontal" method="POST" action="<?php echo APP_URL."/contest/create"?>" enctype="multipart/form-data" onsubmit="return checkForm()">
+            <form id="conForm" class="form-horizontal" method="POST" action="<?php if(isset($cid)) echo APP_URL."/contest/update/cid=$cid" ; else echo APP_URL."/contest/create"?>" enctype="multipart/form-data" onsubmit="return text_html()">
 				<div class="form-group">
 					<label class="col-lg-2 control-label">比赛名称</label>
 					<div class="col-lg-10">
-						<input type="name" placeholder="2016 新生赛-1" class="form-control" name="cname" />
+                    <input type="name" placeholder="2016 新生赛-1" class="form-control" name="cname" value="<?php if(isset($cid)) echo $cname ?>" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-2 control-label">开始时间</label>
 					<div class="col-lg-10">
-						<input type="datetime-local" placeholder="" class="form-control" name="timeStart" />
+						<input type="datetime-local" placeholder="" class="form-control" name="timeStart" value="<?php if(isset($cid)) echo substr(str_replace(" ", "T", $timeStart), 0, -3); ?>" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-2 control-label">结束时间</label>
 					<div class="col-lg-10">
-						<input type="datetime-local" placeholder="" class="form-control" name="timeEnd" />
+						<input type="datetime-local" placeholder="" class="form-control" name="timeEnd" value="<?php if(isset($cid)) echo substr(str_replace(" ", "T", $timeEnd),0, -3); ?>"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-2 control-label">密码</label>
 					<div class="col-lg-10">
-						<input type="" placeholder="不填写即无密码" class="form-control" name="password" />
+                    <input type="" placeholder="不填写即无密码" class="form-control" name="password" value="<?php if(isset($cid)) echo $password; ?>"/>
 					</div>
 				</div>
-
+				<div class="form-group">
+					<label class="col-lg-2 control-label">比赛说明</label>
+					<div class="col-lg-10">
+						<textarea type="text" class="form-control" style="height:150px" name="introduction" id="introduction" value="<?php echo $introduction; ?>"></textarea>
+					</div>
+				</div>
+                <input type="hidden" name="author" value="<?php echo $_SESSION['username'];?>"/>
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary-alt btn-block">Submit</button>
 			</div>
@@ -401,7 +374,6 @@
 
 
         <div id="main" class="fix-sidebar">
-
 
 
             <div class="sidebar">

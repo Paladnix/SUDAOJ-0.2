@@ -12,7 +12,7 @@ define ('APP_PATH', __DIR__.'/');
 // 默认开启DEBUG模式
     define ('APP_DEBUG', true);
 
-//   define ('APP_DEBUG_FRA', true);
+   define ('APP_DEBUG_FRA', true);
 
 
 //define('JUDGE_DEBUG', true);

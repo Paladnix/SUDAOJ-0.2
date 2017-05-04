@@ -35,6 +35,8 @@ class ProblemController extends Controller{
             $data['inputCase'] = $_POST["inputCase"];
             $data['outputCase'] = $_POST["outputCase"];
             $data['visable'] = $_POST["visable"];
+            if(isset($_POST['cid']))
+                $data['cid'] = $_POST["cid"];
         }
         else {
             exit("The service has not got message from the http url by the method of POST.");
@@ -88,10 +90,25 @@ class ProblemController extends Controller{
 
         $params[] = sprintf("pid=%s", $pid);
 
-        $this->show($params);
+        if( ! isset($data['cid'])){
+            $this->show($params);
+            return ;
+        }
 
+        $where_tmp = array("cid" => $data['cid']);
 
+        $result = (new ContestModel)->addProblem($pid, $where_tmp);
 
+        if( $result == 0 ){
+
+            $this->error("添加题目失败");
+
+            return ;
+        }
+
+        header("Location:".APP_URL."/contest/show/cid=".$data['cid']);
+        
+        return ;
     }
 
     public function show( $params ){

@@ -34,9 +34,9 @@ create table problem(
 	timeLimit float default '1.0',
 	memoryLimit int default '65535',
 	author varchar(32),
-	contest int default '0',
+	cid int default '0',
 	visable int default '0',
-    tag varchar(2014),
+    tag varchar(2014) default "#",
 	
 	primary key(pid)
 
@@ -66,7 +66,7 @@ create table contest(
 	timeStart datetime,
 	timeEnd datetime,
 	password varchar(20),
-    problem varchar(1024),
+    problem varchar(1024) default "#",
 	author varchar(32) NOT NULL default 'admin',
     introduction varchar(2014),
     tip varchar(1024),

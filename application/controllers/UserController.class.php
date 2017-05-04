@@ -6,7 +6,7 @@ class UserController extends Controller{
 
         define('PAGE_TYPE', 'guide');
         $this->assign('error', '暂时没有页面');
-    
+
         $this->render('index');
     }
 
@@ -43,9 +43,10 @@ class UserController extends Controller{
 
             $_SESSION['username'] = $data['username'];
 
-            $this->index();
+            header("Location:".APP_URL);
 
-        }else $this->error("注册失败，用户名已被注册");
+        }
+        else $this->error("注册失败，用户名已被注册");
     }
 
     public function login()
@@ -77,7 +78,7 @@ class UserController extends Controller{
                 {
                     $_SESSION['username'] = $data['username'];
 
-                    $this->index();
+                    header("Location:".APP_URL);
                 }
                 else $this->error("密码错误");
         }
@@ -86,7 +87,7 @@ class UserController extends Controller{
 
         unset($_SESSION['username']);
 
-        $this->index();
+        header("Location:".APP_URL);
     }
 
     public function lostpw(){
