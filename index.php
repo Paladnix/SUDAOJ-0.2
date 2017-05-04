@@ -20,6 +20,6 @@ defined ('JUDGE_DEBUG') or define ( 'JUDGE_DEBUG', false);
 
 
 // APP_URL 是本地项目的主目录
-define ('APP_URL', 'http://localhost/OJ');
+define ('APP_URL', 'http://115.28.164.8/OJ');
 
 require './PHP_MVC/phpmvc.php';
