@@ -11,7 +11,7 @@
         </ul>
     </div>
     <h2 id="">Discription</h2>
-    <p> <?php echo $discription ?></p>                   
+    <p> <?php echo $discription ?></p> 
 
 
     <h2 id="">Input</h2>

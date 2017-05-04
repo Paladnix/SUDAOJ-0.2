@@ -64,7 +64,7 @@ class ProblemView extends View{
             include($this->defaultError);
         } 
         // problem
-        if($this->_action == "show"){
+        if($action == "show"){
 
             if( file_exists($controllerProblem) )   include($controllerProblem);
             else{

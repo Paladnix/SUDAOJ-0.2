@@ -86,7 +86,7 @@ class ProblemController extends Controller{
             return ;
         }
 
-        $params = array( sprintf("pid=%s", $pid));
+        $params[] = sprintf("pid=%s", $pid);
 
         $this->show($params);
 
