@@ -4,19 +4,18 @@
 <div class="list">
 
 
-
     <ul class="menu-root">
         <li><h3></h3></li>
         <li><h4></h4></li>
-        <li><a href="#title" class="sidebar-link current">首页</a></li>
-        <li><a href="#团队" class="sidebar-link ">制作团队</a></li>
+        <li><a href="#title" class="sidebar-link current">Something-1</a></li>
+        <li><a href="#团队" class="sidebar-link ">Something-2</a></li>
     </ul>
 </div>
 </div>
 
 
 <!-- Right Side -->
-<div class="content guide with-sidebar index-guide">
+<div class="content guide with-sidebar index-guide" id="rightSide">
 
         <h1>题目列表</h1>
 
@@ -38,7 +37,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($row as $p) { ?>
+                                    <?php foreach($vars['row'] as $p) { ?>
                                     <tr>
                                         <td><?php echo $p['pid'] ?></td>
                                         <td><a href="<?php echo APP_URL ?>/problem/show/pid=<?php echo $p['pid']?>" ><?php echo $p['pname'] ?> </a></td>
@@ -83,5 +82,4 @@
     -->
 
 
-</div>
 </div>

@@ -22,57 +22,111 @@ class ContestView extends View{
      * 重写 render() 渲染这个页面
      * 
      */
-
-    public function render( $action ){
-
-        // 将数组中的键值对的键转换成同名的变量
-        extract($this->variables);
-
-        $vars = $this->variables;
-
-        $controllerHeader = APP_PATH.'application/views/'.$this->_controller.'/header.php';
-        $controllerFooter = APP_PATH.'application/views/'.$this->_controller.'/footer.php';
-        $controllerLayout = APP_PATH.'application/views/'.$this->_controller.'/'.$action.'.php';
-        $controllerUpdate = APP_PATH.'application/views/'.$this->_controller.'/update.php';
-        $controllerProblem = APP_PATH.'application/views/Problem/problem.php';
-        $controller = $this->_controller;
-
-        // Header
-        if(file_exists ($controllerHeader)){
-            if( APP_DEBUG_FRA ) echo "<br><br><br>include $controllerHeader<br>";
-
-            include($controllerHeader);
-        }
-        else{
-
-            include($this->defaultHeader);
-
-            if( APP_DEBUG_FRA ) echo "<br><br><br>include $controllerHeader failed.<br>";
-        }
-        // Update
-
-        // Body
-        if( file_exists($controllerLayout) )   include($controllerLayout);
-        else{
-
-            if( APP_DEBUG_FRA ) echo "<br> $controllerLayout has not been find.<br>";
-            include($this->defaultError);
-        } 
-
-        // Footer       
-        if(file_exists($controllerFooter)){
-
-            if( APP_DEBUG_FRA ) echo "<br>include $controllerFooter<br>";
-
-            include($controllerFooter);
-
-        }
-        else {
-
-            include($this->defaultFooter);
-
-            if( APP_DEBUG_FRA ) echo "<br>include $controllerFooter failed.<br>";
-        }
-
+    public function error(){
+        $page = APP_PATH."application/views/Index/error.php";
+        $this->page($page);
     }
+
+    public function archive(){
+
+
+        $pages[] = APP_PATH.'application/views/Index/header.php';
+        $pages[] = APP_PATH."application/views/Contest/archive.php";
+        $pages[] = APP_PATH.'application/views/Index/end.html';
+        $pages[] = APP_PATH.'application/views/Index/login.php';
+        $pages[] = APP_PATH.'application/views/Index/register.php';
+        $pages[] = APP_PATH.'application/views/Index/newProblem.php';
+        $pages[] = APP_PATH.'application/views/Index/newContest.php';
+        $pages[] = APP_PATH.'application/views/Index/footer.php';
+
+        foreach($pages as $page) $this->page($page);
+    }
+    public function show(){
+
+
+        $pages[] = APP_PATH.'application/views/Index/header.php';
+        $pages[] = APP_PATH."application/views/Contest/left.php";
+        $pages[] = APP_PATH."application/views/Contest/show.php";
+        $pages[] = APP_PATH.'application/views/Index/end.html';
+        $pages[] = APP_PATH.'application/views/Contest/update.php';
+        $pages[] = APP_PATH.'application/views/Index/login.php';
+        $pages[] = APP_PATH.'application/views/Index/register.php';
+        $pages[] = APP_PATH.'application/views/Index/newProblem.php';
+        $pages[] = APP_PATH.'application/views/Index/newContest.php';
+        $pages[] = APP_PATH.'application/views/Index/footer.php';
+
+        foreach($pages as $page) $this->page($page);
+    }
+    public function showProblem(){
+
+
+        $pages[] = APP_PATH.'application/views/Index/header.php';
+        $pages[] = APP_PATH."application/views/Contest/left.php";
+        $pages[] = APP_PATH."application/views/Problem/problem.php";
+        $pages[] = APP_PATH.'application/views/Index/end.html';
+        $pages[] = APP_PATH.'application/views/Problem/submit.php';
+        $pages[] = APP_PATH.'application/views/Contest/update.php';
+        $pages[] = APP_PATH.'application/views/Index/login.php';
+        $pages[] = APP_PATH.'application/views/Index/register.php';
+        $pages[] = APP_PATH.'application/views/Index/newProblem.php';
+        $pages[] = APP_PATH.'application/views/Index/newContest.php';
+        $pages[] = APP_PATH.'application/views/Index/footer.php';
+
+        foreach($pages as $page) $this->page($page);
+    }
+
+    public function showStatus(){
+
+
+        $pages[] = APP_PATH.'application/views/Index/header.php';
+        $pages[] = APP_PATH."application/views/Contest/left.php";
+        $pages[] = APP_PATH."application/views/Status/show.php";
+        $pages[] = APP_PATH.'application/views/Index/end.html';
+        $pages[] = APP_PATH.'application/views/Contest/update.php';
+        $pages[] = APP_PATH.'application/views/Index/login.php';
+        $pages[] = APP_PATH.'application/views/Index/register.php';
+        $pages[] = APP_PATH.'application/views/Index/newProblem.php';
+        $pages[] = APP_PATH.'application/views/Index/newContest.php';
+        $pages[] = APP_PATH.'application/views/Index/footer.php';
+
+        foreach($pages as $page) $this->page($page);
+    }
+    public function showRank(){
+
+
+        $pages[] = APP_PATH.'application/views/Index/header.php';
+        $pages[] = APP_PATH."application/views/Contest/left.php";
+        $pages[] = APP_PATH."application/views/Contest/rank.php";
+        $pages[] = APP_PATH.'application/views/Index/end.html';
+        $pages[] = APP_PATH.'application/views/Contest/update.php';
+        $pages[] = APP_PATH.'application/views/Index/login.php';
+        $pages[] = APP_PATH.'application/views/Index/register.php';
+        $pages[] = APP_PATH.'application/views/Index/newProblem.php';
+        $pages[] = APP_PATH.'application/views/Index/newContest.php';
+        $pages[] = APP_PATH.'application/views/Index/footer.php';
+
+        foreach($pages as $page) $this->page($page);
+    }
+    public function render($action){
+
+        if($action == "show"){
+            $this->show(); return ;
+        }
+        if($action == "archive"){
+            $this->archive(); return ;
+        }
+        if($action == "showProblem"){
+            $this->showProblem(); return ;
+        }
+        if($action == "showStatus"){
+            $this->showStatus(); return ;
+        }
+        if($action == "showRank"){
+            $this->showRank(); return ;
+        }
+
+        $this->error();
+        return ;
+    }
+
 }

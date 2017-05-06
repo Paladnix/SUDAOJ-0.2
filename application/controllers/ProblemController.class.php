@@ -4,9 +4,6 @@ class ProblemController extends Controller{
 
     public function index(){
 
-        define('PAGE_TYPE', 'guide');
-
-
         $this->archive();
     }
 

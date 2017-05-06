@@ -21,7 +21,13 @@ class StatusModel extends Model {
 
     public function select($data){
 
-        $sql = sprintf("select * from `%s` where %s", $this->_table, $this->formatWhere($data));
+        $sql = sprintf("select * from `%s` where %s order by rid desc", $this->_table, $this->formatWhere($data));
+
+        return $this->selectSQL($sql);
+    }
+    public function selectAll(){
+
+        $sql = sprintf("select * from `%s` order by rid desc", $this->_table);
 
         return $this->selectSQL($sql);
     }

@@ -1,4 +1,4 @@
 
 
 
-<h3><?php echo "<br><br><br><br>"; print_r($error); ?></h3>
+<h3><?php echo "<br><br><br><br>"; print_r($vars['error']); ?></h3>

@@ -22,5 +22,34 @@ class IndexView extends View{
  * 重写 render() 渲染这个页面
  * 
  */
+    public function error(){
+        $page = APP_PATH."application/views/Index/error.php";
+        $this->page($page);
+    }
+
+    public function index(){
+
+        $pages[] = APP_PATH.'application/views/Index/header.php';
+        $pages[] = APP_PATH.'application/views/Index/left.php';
+        $pages[] = APP_PATH.'application/views/Index/index.php';
+        $pages[] = APP_PATH.'application/views/Index/end.html';
+        $pages[] = APP_PATH.'application/views/Index/login.php';
+        $pages[] = APP_PATH.'application/views/Index/register.php';
+        $pages[] = APP_PATH.'application/views/Index/newProblem.php';
+        $pages[] = APP_PATH.'application/views/Index/newContest.php';
+        $pages[] = APP_PATH.'application/views/Index/footer.php';
+
+        foreach($pages as $page)
+            $this->page($page);
+    }
+
+    public function render($action="index"){
+        if($action == 'index'){
+            $this->index(); return ;
+        }
+
+        $this->error();
+        return ;
+    }
 
 }

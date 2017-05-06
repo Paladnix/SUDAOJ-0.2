@@ -6,10 +6,10 @@
     <br>
 
     <ul class="menu-root">
-        <li><h3><?php echo "$pid. $pname" ?></h3></li>
-        <li>All Accepted: <?php echo "$accepted"?></li>
-        <li>All Submited: <?php echo "$submited"?></li>
-        <li>Pass Ratio: <?php echo "$ratio"?></li>
+        <li><h3><?php echo $vars['pid'].". ". $vars['pname'] ?></h3></li>
+        <li>All Accepted: <?php echo $vars['accepted']?></li>
+        <li>All Submited: <?php echo $vars['submited']?></li>
+        <li>Pass Ratio: <?php echo $vars['ratio']?></li>
         <!--        <li><a href="#" class="sidebar-link ">somethings_2</a></li>
             <li><a href="#" class="sidebar-link current">something_1</a></li>
         -->
@@ -18,7 +18,7 @@
     <br>
     <!-- Tags about this problem -->
     <div style="margin: 5px 70px 5px -10px; width=80%;">
-        <?php $Tags = explode("#", $tag);
+        <?php $Tags = explode("#", $vars['tag']);
          $colors = array("btn-primary","btn-danger", "btn-success","btn-info", "btn-warning");
          foreach($Tags as $tags) {
          ?>

@@ -15,7 +15,7 @@
 
 
 <!-- Right Side -->
-<div class="content guide with-sidebar index-guide">
+<div class="content guide with-sidebar index-guide" id="rightSide">
 
         <h1>题目列表</h1>
 
@@ -37,7 +37,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($row as $p) { ?>
+                                    <?php foreach($vars['row'] as $p) { ?>
                                     <tr>
                                         <td><?php echo $p['pid'] ?></td>
                                         <td><a href="<?php echo APP_URL ?>/problem/show/pid=<?php echo $p['pid']?>" ><?php echo $p['pname'] ?> </a></td>
@@ -82,5 +82,4 @@
     -->
 
 
-</div>
 </div>

@@ -94,27 +94,7 @@ class ContestController extends Controller{
 
     }
 
-    public function show( $params ){
-
-        $data = array();
-
-        foreach($params as $param){
-
-            $tmp = explode("=", $param);
-
-            $data[$tmp[0]] = $tmp[1];
-
-        }
-
-        $result = (new ContestModel)->select($data);
-
-        if($result == array()){
-
-            $this->error("没有这场比赛");
-
-            return ;
-        }
-
+    private function assignContest($result){
 
         foreach($result as $row){
 
@@ -158,7 +138,82 @@ class ContestController extends Controller{
             }
         }
 
+    }
+    
+    public function show( $params ){
+
+        $data = array();
+
+        foreach($params as $param){
+
+            $tmp = explode("=", $param);
+
+            $data[$tmp[0]] = $tmp[1];
+
+        }
+
+        $result = (new ContestModel)->select($data);
+
+        if($result == array()){
+
+            $this->error("没有这场比赛");
+
+            return ;
+        }
+
+        $this->assignContest($result);
+
+
         $this->render("show");
+
+    }
+
+
+    public function showProblem($params){
+
+        $data = array();
+        $where = array();
+
+        foreach($params as $param){
+
+            $tmp = explode("=", $param);
+            if($tmp[0] == "pid")
+                $data[$tmp[0]] = $tmp[1];
+            else 
+                $where[$tmp[0]] = $tmp[1];
+
+        }
+
+        $this->assign('cid', $where['cid']);
+        $result = (new ProblemModel)->select($data);
+
+        if($result == array()){
+
+            echo "没有这个题目";
+            return ;
+        }
+
+        foreach($result as $row){
+
+            foreach($row as $key => $value){
+
+                $value = str_replace("\n", "<br>", $value);
+                $this->assign($key, $value);
+            }
+        }
+       
+        $result = (new ContestModel)->select($where);
+        if($result == array()){
+
+            echo "没有这个题目";
+            return ;
+        }
+
+
+        $this->assignContest($result);
+        $this->render("showProblem");
+
+        return ;
 
     }
 
@@ -184,10 +239,93 @@ class ContestController extends Controller{
             return ;
         }
 
+        if(APP_DEBUG_FRA) print_r($result);
 
         $this->assign("row", $result);
 
         $this->render("archive");
+
+    }
+
+    public function rmProblem($params){
+
+        $data = array();
+        $where = array();
+
+        foreach($params as $param){
+
+            $tmp = explode("=", $param);
+            if($tmp[0] == "pid")
+                $data[$tmp[0]] = $tmp[1];
+            else 
+                $where[$tmp[0]] = $tmp[1];
+
+        }
+        if(APP_DEBUG_FRA) print_r($data);
+        if(APP_DEBUG_FRA) print_r($where);
+
+        $result = (new ContestModel)->rmProblem($data, $where); 
+
+        if($result == 0){
+
+            echo "gengxin shibai ";
+            $this->error("删除题目失败");
+
+            return ;
+        }
+
+        return ;
+    }
+
+    public function showStatus($params){
+
+        $data = array();
+        $where = array();
+
+        foreach($params as $param){
+
+            $tmp = explode("=", $param);
+            $where[$tmp[0]] = $tmp[1];
+
+        }
+
+        $result = (new StatusModel)->select($where);
+
+        if($result == array()){
+            $this->error("没有这个条件的提交记录");
+            return ;
+        } 
+        $this->assign("result", $result);
+        
+        $result = (new ContestModel)->select($where);
+        $this->assignContest($result);
+        $this->render("showStatus");
+
+    }
+    public function showRank($params){
+        $data = array();
+        $where = array();
+
+        foreach($params as $param){
+
+            $tmp = explode("=", $param);
+            $where[$tmp[0]] = $tmp[1];
+
+        }
+
+        $result = (new ContestModel)->select($where);
+        $this->assignContest($result);
+        
+        
+        $result = (new StatusModel)->select($params);
+
+        if($result == array()){
+            $this->error("没有这个条件的提交记录");
+            return ;
+        } 
+
+
+        $this->render("showRank");
 
     }
 }

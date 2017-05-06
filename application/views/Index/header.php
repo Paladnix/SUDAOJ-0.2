@@ -26,11 +26,15 @@
 
     <body class="docs" onload="prettyPrint()">
 
+    <!-- Begin mobile bar -->
         <div id="mobile-bar"  >
             <a class="menu-button"></a>
             <a class="logo" href="<?php echo APP_URL ?>/"></a>
         </div>
+    <!-- End mobile bar -->
 
+
+    <!-- Begin  header -->
         <div id="header">
             <a id="logo" href="<?php echo APP_URL ?>/">
                 <img src="<?php echo APP_URL ?>/images/logo.png">
@@ -76,307 +80,15 @@
 
             </ul>
         </div>
- 
+        <!-- End  header -->
 
-<!-- Button trigger modal -->
-<!-- Big Modal -->
-<div class="modal fade " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-md" role="document">
-    <div class="modal-content">
-      <!-- header  -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">User Login</h4>
-      </div>
-      <!-- Body -->
-      <div class="modal-body login">
-          <div class="login-form ">
-            <form role="form" action="<?php echo APP_URL."/user/login"?>" method="post">
-            <div class="form-group"><div class="pos">
-              <input type="text" class="login-field" value="" placeholder="Enter your username" name="username" />
-            </div></div>
-
-            <div class="form-group "><div class="pos">
-              <input type="password" class="login-field" value="" placeholder="Password" name="password" />
-            </div></div>
-
-			<div class="form-group login-pos">
-				<button type="submit" class="btn btn-primary-alt btn-block">Login</button>
-			</div>
-            </form>
-            <a class="login-link" href="<?php echo APP_URL?>/user/lostpw">Lost your password?</a>
-          </div>
-      </div>
-      <!-- Footer -->
-      <!--
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-        -->
-    </div>
-  </div>
-</div>
-
-
-<!-- Big Modal -->
-<div class="modal fade " id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-md" role="document">
-    <div class="modal-content">
-      <!-- header  -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">User Register</h4>
-      </div>
-      <!-- Body -->
-      <div class="modal-body login">
-          <div class="login-form">
-            <form role="form" action="<?php echo APP_URL."/user/register/"?>" method="post" onsubmit="return checkForm()">
-
-            <div class="form-group"><div class="pos">
-              <input type="text" class="login-field" value="" placeholder="Enter your truename" name="truename" />
-            </div></div>
-            <div class="form-group"><div class="pos">
-              <input type="text" class="login-field" value="" placeholder="Enter your username/nickname" name="username" required="required"/>
-            </div></div>
-            <div class="form-group"><div class="pos">
-              <input type="password" class="login-field" value="" placeholder="Password" name="password" required="required" id="password"/>
-            </div></div>
-            <div class="form-group"><div class="pos">
-              <input type="password" class="login-field" value="" placeholder="Repeat Password" name="passwordrepeat" /required="required" id="passwordrepeat" />
-            </div></div>
-
-            <div class="form-group"><div class="pos">
-              <input type="email" class="login-field" value="" placeholder="Enter your E-mail" name="email" required="required"/>
-            </div></div>
-            <div class="form-group"><div class="pos">
-              <input type="text" class="login-field" value="" placeholder="Enter your telephone" name="tel" />
-            </div></div>
-			<div class="radio-custom radio-primary radio-pos"><div class="pos">
-			    <input type="radio" id="radioSex1" name="sex" value="male"/>
-				<label for="radioSex1">Male</label>
-			</div></div>
-			<div class="radio-custom radio-primary radio-pos"><div class="pos">
-			    <input type="radio" id="radioSex2" class="" name="sex" value="female" />
-				<label for="radioSex2">Female</label>
-			</div></div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary-alt btn-block">Register</button>
-			</div>
-            </form>
-          </div>
-      </div>
-      <!-- Footer -->
-      <!--
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-        -->
-    </div>
-  </div>
-</div>
-
-
-
-<!-- New problem -->
-<div class="modal fade " id="createProModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <!-- header  -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create New Problem</h4>
-      </div>
-      <!-- Body -->
-      <div class="modal-body login">
-          <div class="login-form">
-            <form id="CrtProForm" class="form-horizontal" method="POST" action="<?php if(isset($cid)) echo APP_URL."/problem/create"; else echo APP_URL."/problem/create";?>" enctype="multipart/form-data" onsubmit="return text_html()">
-
-				<div class="form-group">
-					<label class="col-lg-2 control-label">题目名称</label>
-					<div class="col-lg-10">
-						<input type="name" placeholder="" class="form-control" name="pname" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">时限(C++)</label>
-					<div class="col-lg-10">
-						<input type="number" placeholder="毫秒" class="form-control" name="timeLimit" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">内存限制</label>
-					<div class="col-lg-10">
-						<input type="memory" placeholder="MB" class="form-control" name="memoryLimit" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">出题人</label>
-					<div class="col-lg-10">
-						<input type="name" placeholder="" class="form-control" name="author" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">题目类型</label>
-					<div class="col-lg-10">
-						<input type="name" placeholder="多个类型请用#隔开" class="form-control" name="tag" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">题目描述</label>
-					<div class="col-lg-10">
-						<textarea type="text" class="form-control" style="height:150px" name="discription" id="discription"></textarea>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">Input</label>
-					<div class="col-lg-10">
-						<textarea type="text"  class="form-control" style="height:100px" name="input" id="input"></textarea>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">Output</label>
-					<div class="col-lg-10">
-						<textarea type="text" class="form-control" style="height:100px" name="output"></textarea>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">Sample Input</label>
-					<div class="col-lg-10">
-						<textarea type="text"  class="form-control" style="height:100px" name="inputCase"></textarea>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">Sample Output</label>
-					<div class="col-lg-10">
-						<textarea type="text" class="form-control"style="height:100px" name="outputCase"></textarea>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-lg-2 control-label">读入文件</label>
-					<div class="col-lg-10">
-						<input type="file" class="" name="fileIN">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">输出文件</label>
-					<div class="col-lg-10">
-						<input type="file"  class="" name="fileOUT">
-					</div>
-				</div>
-                <?php if(isset($cid)) { ?>
-                    <input type="hidden" name="visable" value="0"/>
-                    <input type="hidden" name="cid" value="<?php echo $cid?>"/>
-                <?php } else {?>
-                    <input type="hidden" name="visable" value="1"/>
-                <?php } ?>
-            <div class="form-group">
-                <?php if(isset($cid)) { ?>
-				    <!-- <button type="button" id="ConProSub" class="btn btn-primary-alt btn-block">Submit</button> -->
-				    <button type="submit" id="" class="btn btn-primary-alt btn-block">Submit</button>
-                <?php } else {?>
-				    <button type="submit" id="" class="btn btn-primary-alt btn-block">Submit</button>
-                <?php } ?>
-			</div>
-            </form>
-          </div>
-      </div>
-      <!-- Footer -->
-      <!--
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-        -->
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade " id="createConModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <!-- header  -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><?php if(isset($cid)) echo $cname; else echo "Create New Contest"; ?></h4>
-      </div>
-      <!-- Body -->
-      <div class="modal-body login">
-          <div class="login-form">
-            <form id="conForm" class="form-horizontal" method="POST" action="<?php if(isset($cid)) echo APP_URL."/contest/update/cid=$cid" ; else echo APP_URL."/contest/create"?>" enctype="multipart/form-data" onsubmit="return text_html()">
-				<div class="form-group">
-					<label class="col-lg-2 control-label">比赛名称</label>
-					<div class="col-lg-10">
-                    <input type="name" placeholder="2016 新生赛-1" class="form-control" name="cname" value="<?php if(isset($cid)) echo $cname ?>" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">开始时间</label>
-					<div class="col-lg-10">
-						<input type="datetime-local" placeholder="" class="form-control" name="timeStart" value="<?php if(isset($cid)) echo substr(str_replace(" ", "T", $timeStart), 0, -3); ?>" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">结束时间</label>
-					<div class="col-lg-10">
-						<input type="datetime-local" placeholder="" class="form-control" name="timeEnd" value="<?php if(isset($cid)) echo substr(str_replace(" ", "T", $timeEnd),0, -3); ?>"/>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">密码</label>
-					<div class="col-lg-10">
-                    <input type="" placeholder="不填写即无密码" class="form-control" name="password" value="<?php if(isset($cid)) echo $password; ?>"/>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label">比赛说明</label>
-					<div class="col-lg-10">
-						<textarea type="text" class="form-control" style="height:150px" name="introduction" id="introduction" value="<?php echo $introduction; ?>"></textarea>
-					</div>
-				</div>
-                <input type="hidden" name="author" value="<?php echo $_SESSION['username'];?>"/>
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary-alt btn-block">Submit</button>
-			</div>
-            </form>
-          </div>
-      </div>
-      <!-- Footer -->
-      <!--
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-        -->
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <!-- Body 主体部分 -->
         <div id="main" class="fix-sidebar">
 
-
+            <!-- Begin Left Side -->
             <div class="sidebar">
+
+                <!-- mobile left bar of header -->
                 <ul class="main-menu">
                 
                 <li>
@@ -413,8 +125,6 @@
             <?php } else { ?>
                 <li><a href="#registerModal" class="nav-link" data-toggle="modal" data-target="#registerModal" role="button">Register</a></li>
                 <li><a href="#loginModal" class="nav-link" data-toggle="modal" data-target="#loginModal" role="button" >Login</a></li>
-            <?php } ?>
-
- 
+            <?php } ?> 
  
                 </ul>

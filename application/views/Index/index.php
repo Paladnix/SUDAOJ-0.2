@@ -1,14 +1,4 @@
 
-<!-- Left Side -->
-<div class="list">
-    <ul class="menu-root">
-        <li><h3>在线评测系统</h3></li>
-        <li><a href="#title" class="sidebar-link current">首页</a></li>
-        <li><a href="#团队" class="sidebar-link ">制作团队</a></li>
-    </ul>
-</div>
-</div>
-
 
 <!-- Right Side -->
 <div class="content guide with-sidebar index-guide">
@@ -179,5 +169,4 @@ localhost/
     -->
 
 
-</div>
 </div>

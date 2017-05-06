@@ -37,7 +37,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($row as $c) { ?>
+                                    <?php foreach($vars['row'] as $c) { ?>
                                     <tr>
                                         <td><?php echo $c['cid'] ?></td>
                                         <td><a href="<?php echo APP_URL ?>/contest/show/cid=<?php echo $c['cid']?>" ><?php echo $c['cname'] ?> </a></td>

@@ -53,4 +53,28 @@ class ContestModel extends Model {
 
         return $this->querySQL($sql);
     }
+
+    public function rmProblem($data, $where){
+
+        $sql = sprintf("select problem from `%s` where %s", $this->_table, $this->formatWhere($where));
+
+        $result = $this->selectSQL($sql);
+
+        if(APP_DEBUG_FRA) print_r($result);
+
+        $problem = $result[0]['problem'];
+
+        $problems = explode('#', $problem);
+
+        $problem = "#";
+
+        foreach($problems as $pid){
+            if( $pid != $data['pid'] && $pid!="" )
+                $problem = $problem."#".$pid;
+        }
+
+        $data = array('problem' => $problem);
+
+        return $this->update($data, $where);
+    }
 }
