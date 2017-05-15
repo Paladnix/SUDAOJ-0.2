@@ -28,17 +28,13 @@
                                 <input type="file" class="login-field"  placeholder="" name="file" />
                                 <input type="hidden" class="login-field" placeholder="" name="pid" id="p" value="<?php echo $vars['pid'] ?>" />
                                 <input type="hidden" class="login-field" placeholder="" name="username" value="<?php echo $_SESSION['username'] ?>" />
-                                <?php if(isset($vars['cid'])){ ?>
+                                <?php if(isset($vars['cid']) && $vars['cid']!=0){ ?>
                                     <input type="hidden" class="login-field" placeholder="" name="cid" value="<?php echo $vars['cid'] ?>" /> 
                                 <?php } ?> 
                             </div>
                         </div>
                         <div class="form-group login-pos">
-                        <?php if(isset($vars['cid'])) { ?>
                             <button id="submit" type="button" class="btn btn-primary-alt btn-block">submit</button>
-                            <?php } else { ?>
-                            <button id="submit" type="button" class="btn btn-primary-alt btn-block">submit</button>
-                            <?php }?>
                         </div>
                     </form>
                 </div>

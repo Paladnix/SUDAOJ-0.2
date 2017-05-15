@@ -101,7 +101,7 @@ div > .middle{
 }
 
 .list > .block{
+    width:auto;
     padding: 20px 20px;
     background-color: #F3F3F3;
-    border: 0px solid #2a2d2c;
 }

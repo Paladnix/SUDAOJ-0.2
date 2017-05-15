@@ -119,11 +119,17 @@ class Judge
         $minutes = $ti[0];
         $ti = explode(".", $ti[1]);
         $seconds = $ti[0];
-        $msec = $ti[1];
+        if(isset($ti[1]))
+            $msec = $ti[1];
+        else $msec = 0;
 
         $time_use = $minutes*60*1000 + $seconds*1000 + $msec*10;
 
-        $memory_use = $mes[1];
+        if(isset($mes[1]))
+            $memory_use = $mes[1];
+        else $memory_use = 0;
+        
+        if(JUDGE_DEBUG) print_r($memory_use);
 
         if( $memory_use >= $this->Memory )
         {

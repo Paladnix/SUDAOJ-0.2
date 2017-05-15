@@ -281,7 +281,7 @@ class ProblemController extends Controller{
         }
 
         foreach($result as $row ){
-            $data['timeLimit'] = $row['timeLimit']/1000;
+            $data['timeLimit'] = ceil($row['timeLimit']/1000);
             $data['memoryLimit'] = $row['memoryLimit'] * 1024;
         }
 
@@ -291,6 +291,8 @@ class ProblemController extends Controller{
          *  后缀Name 为单纯文件名，不包含路径
          *  二者都没有的为绝对路径. 
          */
+
+        if(APP_DEBUG_FRA) print_r($data);
 
         $data = $this->judge($data);
 
