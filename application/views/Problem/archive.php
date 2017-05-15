@@ -7,8 +7,6 @@
     <ul class="menu-root">
         <li><h3></h3></li>
         <li><h4></h4></li>
-        <li><a href="#title" class="sidebar-link current">Something-1</a></li>
-        <li><a href="#团队" class="sidebar-link ">Something-2</a></li>
     </ul>
 </div>
 </div>
@@ -19,17 +17,10 @@
 
         <h1>题目列表</h1>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="lt-tables">
-                    <p class="lead text-muted"></p>
-                    <div class="lt-box">
-                        <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table>
                                 <thead>
                                     <tr>
-                                        <th style="width:10%;">#</th>
+                                        <th style="width:1%;">#</th>
                                         <th style="width:30%;">Problem Name</th>
                                         <th style="width:40%">Tags</th>
                                         <th style="width:10%;">Ratio</th>
@@ -51,35 +42,5 @@
                                     <?php } ?>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <hr>
-    <blockquote id="company">
-        <p id="团队"><strong>苏州大学微软学生俱乐部 SUMSC</strong></p>
-    </blockquote>
-    <hr>
-
-    <!-- guide links -->
-    <!--                <div class="guide-links">
-        <span>← <a href="installation.html">安装</a></span>
-        <span style="float:right"><a href="instance.html">Vue 实例</a> →</span>
-        </div>
-    -->
-
 
 </div>
