@@ -11,15 +11,15 @@
 <script src="<?php echo APP_URL ?>/js/tagcloud.jquery.js"></script>
 <script src="<?php echo APP_URL ?>/js/my.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="<?php echo APP_URL?>/js/bootstrap.min.js" ></script>
 <!-- search -->
-<link href="https://cdn.bootcss.com/docsearch.js/1.4.4/docsearch.min.css" rel="stylesheet">
+<link href="<?php echo APP_URL?>/css/docsearch.min.css" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo APP_URL ?>/css/search.css">
-<script src="https://cdn.bootcss.com/docsearch.js/1.4.4/docsearch.min.js"></script>
+<script src="<?php echo APP_URL?>/js/docsearch.min.js"></script>
 
 
 <!-- fastclick -->
-<script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+<script src="<?php echo APP_URL?>/js/fastclick.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     FastClick.attach(document.body)

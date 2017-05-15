@@ -9,8 +9,6 @@
         
         <link rel="icon" href="<?php echo APP_URL ?>/images/logo.png" type="image/x-icon">
 
-        <!-- main page styles -->
-
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/bootstrap-theme.css">
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/bootstrap.css">
         <link rel="stylesheet" href="<?php echo APP_URL ?>/css/style.css">
@@ -37,16 +35,10 @@
     <!-- Begin  header -->
         <div id="header">
             <a id="logo" href="<?php echo APP_URL ?>/">
-                <img src="<?php echo APP_URL ?>/images/logo.png">
-                <span>Online Judge</span>
+               <!-- <img src=""> -->
+                <span>Soochow University</span>
             </a>
             <ul id="nav">
-                <li>
-                    <form id="search-form">
-                        <input type="text" id="search-query-nav" class="search-query st-default-search-input">
-                    </form>
-                </li>
-
                 <li><a href="<?php echo APP_URL ?>/" class="nav-link <?php if($controller == "Index") echo "current";?>">Home</a></li>
                 <li class="nav-dropdown-container">
                     <a href="<?php echo APP_URL ?>/contest/" class="nav-link <?php if($controller == "Contest") echo "current";?>">Contest<span class="arrow"></span></a>

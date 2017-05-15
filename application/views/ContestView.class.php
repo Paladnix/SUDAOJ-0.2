@@ -107,6 +107,34 @@ class ContestView extends View{
 
         foreach($pages as $page) $this->page($page);
     }
+    public function login(){
+
+        $pages[] = APP_PATH.'application/views/Index/header.php';
+        $pages[] = APP_PATH."application/views/Contest/left.php";
+        $pages[] = APP_PATH."application/views/Contest/login.php";
+        $pages[] = APP_PATH.'application/views/Index/end.html';
+        $pages[] = APP_PATH.'application/views/Index/login.php';
+        $pages[] = APP_PATH.'application/views/Index/register.php';
+        $pages[] = APP_PATH.'application/views/Index/newProblem.php';
+        $pages[] = APP_PATH.'application/views/Index/newContest.php';
+        $pages[] = APP_PATH.'application/views/Index/footer.php';
+
+        foreach($pages as $page) $this->page($page);
+    }
+    public function waiting(){
+
+        $pages[] = APP_PATH.'application/views/Index/header.php';
+        $pages[] = APP_PATH."application/views/Contest/left.php";
+        $pages[] = APP_PATH."application/views/Contest/waiting.php";
+        $pages[] = APP_PATH.'application/views/Index/end.html';
+        $pages[] = APP_PATH.'application/views/Index/login.php';
+        $pages[] = APP_PATH.'application/views/Index/register.php';
+        $pages[] = APP_PATH.'application/views/Index/newProblem.php';
+        $pages[] = APP_PATH.'application/views/Index/newContest.php';
+        $pages[] = APP_PATH.'application/views/Index/footer.php';
+
+        foreach($pages as $page) $this->page($page);
+    }
     public function render($action){
 
         if($action == "show"){
@@ -123,6 +151,12 @@ class ContestView extends View{
         }
         if($action == "showRank"){
             $this->showRank(); return ;
+        }
+        if($action == "login"){
+            $this->login(); return ;
+        }
+        if($action == "waiting"){
+            $this->waiting(); return ;
         }
 
         $this->error();

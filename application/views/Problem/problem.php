@@ -33,9 +33,8 @@
 
     <br>
     <br>
-    <a href="<?php if(isset($_SESSION['username'])) echo "#submitModal"; else echo "#loginModal"; ?>" class="button" data-toggle="modal" role="button">Submit</a>
+    <a href="<?php if(isset($_SESSION['username'])) echo "#submitModal"; else echo "#loginModal"; ?>" class="btn btn-primary-alt " data-toggle="modal" role="button">Submit</a>
  
 
 </div>
-
 

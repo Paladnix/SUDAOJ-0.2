@@ -268,7 +268,7 @@ a.button.white {
   font-weight: normal;
 }
 #nav .nav-link {
-  cursor: pointer;
+  cursor: pointer; /* 设置光标形状 */
 }
 #nav .nav-dropdown-container .nav-link:hover {
   border-bottom: none;
@@ -292,14 +292,14 @@ a.button.white {
   right: -15px;
   background-color: #fff;
   padding: 10px 0;
-  border: 1px solid #ddd;
-  border-bottom-color: #ccc;
+  border: 1px solid #2a2d2c;
+  border-bottom-color: #2a2c2d;
   text-align: left;
   border-radius: 4px;
   white-space: nowrap;
 }
 #nav .nav-dropdown li {
-  line-height: 1.8em;
+  line-height: 1.5em;
   margin: 0;
   display: block;
 }
@@ -326,7 +326,7 @@ a.button.white {
   display: block;
 }
 #nav .nav-dropdown a:hover {
-  color: #42b983;
+  color: #42a5f5;
 }
 #nav .arrow {
   display: inline-block;
@@ -342,8 +342,8 @@ a.button.white {
 }
 #header {
   background-color: #fff;
-  height: $heading-inner-height;
-  padding: 10px 60px;
+ /* height: $heading-inner-height;*/
+  padding: 0px 60px;
   position: relative;
   z-index: 2;
 }
@@ -360,11 +360,11 @@ body.docs #nav {
   margin: 0;
   padding: 0;
   position: absolute;
-  right: 60px;
-  top: 10px;
-  height: 40px;
-  line-height: 40px;
-  font-size:1.3em;
+  right: 50px;
+  top: 5px;
+ /* height: 40px;
+  line-height: 40px;*/
+  font-size:1.2em;
 }
 #nav .break {
   display: none;
@@ -379,7 +379,7 @@ body.docs #nav {
 }
 .nav-link:hover,
 .nav-link.current {
-  border-bottom: 3px solid #42b983;
+  border-bottom: 3px solid #42a5f5;
 }
 .search-query {
   height: 30px;
@@ -397,11 +397,11 @@ body.docs #nav {
   vertical-align: middle !important;
 }
 .search-query:focus {
-  border-color: #42b983;
+  border-color: #42a5f5;
 }
 #logo {
   display: inline-block;
-  font-size: 1.8em;
+  font-size: 1.3em;
   line-height: 40px;
   color: #2c3e50;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
@@ -556,16 +556,16 @@ ul.demo li {
   margin-bottom: 0;
 }
 .sidebar {
-  position: absolute;
+  position: relative;
   z-index: 10;
-  width:400px;
+/*  width:400px;  */
   top: 61px;
   left: 0;
   bottom: 0;
   padding: 40px 0 30px 60px;
   margin-right: 20px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: visible;
+  overflow-y: visible;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
 }
@@ -611,7 +611,7 @@ ul.demo li {
   top: -1px;
 }
 .sidebar .sidebar-link:hover {
-  border-bottom: 2px solid #42b983;
+  border-bottom: 2px solid #42a5f5;
 }
 .sidebar .section-link.active {
   font-weight: bold;
@@ -654,7 +654,7 @@ ul.demo li {
     position: fixed;
     z-index: 8;
     background-color: #f9f9f9;
-    height: 100%;
+/*    height: 100%; */
     top: 0;
     left: 0;
     padding: 60px 30px 20px;
@@ -682,21 +682,9 @@ ul.demo li {
 }
 .content {
   position: relative;
-  padding: 2.2em 0;
-  max-width: 800px;
+  padding: 2.2em 2em;
+  max-width: 950px;
   margin: 0 auto;
-}
-.content.api > a:first-of-type > h2 {
-  margin-top: 0;
-  padding-top: 0;
-}
-.content.api ul {
-  padding-left: 1.25em;
-  line-height: 1.4em;
-}
-.content.api ul ul,
-.content.api ul p {
-  margin: 0.6em 0;
 }
 .content a.button {
   font-size: 0.9em;
@@ -743,6 +731,7 @@ ul.demo li {
   position: relative;
   z-index: -1;
 }
+/*
 .content h3:after {
   content: "#";
   color: #42b983;
@@ -752,6 +741,7 @@ ul.demo li {
   font-size: 1.2em;
   font-weight: bold;
 }
+*/
 .content figure {
   margin: 1.2em 0;
 }
@@ -769,13 +759,13 @@ ul.demo li {
   padding-left: 1.5em;
 }
 .content a {
-  color: #42b983;
+  color: #42a5f5;
   font-weight: 500;
 }
 .content blockquote {
   margin: 2em 0;
   padding-left: 20px;
-  border-left: 4px solid #42b983;
+  border-left: 4px solid #42a5f5;
 }
 .content blockquote p {
   font-weight: 600;
@@ -791,15 +781,15 @@ ul.demo li {
 }
 .content > table td,
 .content > table th {
-  line-height: 1.6em;
-  padding: 0.5em 1.4em;
+  line-height: 1em;
+  padding: 0.5em 1.2em;
   border: none;
 }
 .content > table td {
-  background-color: #fcfcfc;
+  background-color: #F3F3F3;
 }
 .content > table th {
-  background-color: #42b983;
+  background-color: #42a5f5;
   color: #fff;
   padding-top: 0.85em;
   padding-bottom: 0.85em;

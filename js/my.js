@@ -38,7 +38,7 @@ $(function(){
 
 $(function(){
     [ '#search-query-nav',
-      '#search-query-sidebar'
+        '#search-query-sidebar'
     ].forEach(function (selector) {
         if (!document.querySelector(selector)) return
         // search index defaults to v2
@@ -76,4 +76,29 @@ function text_html(){
     });
 
 }
+/*
+ *  进度条 
+ */
 
+$(function(){
+    if($("#progress").length <= 0){
+        console.log("not find");
+        return ;
+    }else{
+        setInterval(function(){
+            var now = Date.parse(new Date());
+            now /= 1000;
+            var timeStart = $("#timeStart").text();
+            timeStart = Date.parse(new Date(timeStart));
+            timeStart /= 1000;
+            var timeEnd = $("#timeEnd").text();
+            timeEnd = Date.parse(new Date(timeEnd));
+            timeEnd /= 1000;
+            var s = (now-timeStart)/(timeEnd - timeStart);
+            if(s > 1.0)
+                s = 1.0;
+            $("#progress").css("width", s*100+"%");
+
+        }, 3000); 
+    }
+});

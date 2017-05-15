@@ -4,27 +4,18 @@
 <!-- Right Side -->
 <div class="content guide with-sidebar index-guide" id="rightSide">
 
-    <h2>判题状态</h2>
 
-    <div id="pros" class="form form-horizontal">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="lt-tables">
-                        <p class="lead text-muted"></p>
-                        <div class="lt-box">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
+    <p class="lead text-muted">判题状态</p>
+    <table>
+            <thead>
                                         <tr>
-                                            <th style="width:10%;">User</th>
-                                            <th style="width:5%;">Pro.</th>
-                                            <th style="width:5%;">Language</th>
-                                            <th style="width:15%;">Time</th>
-                                            <th style="width:20%;">Result</th>
-                                            <th style="width:20%;">RunTime</th>
-                                            <th style="width:20%;">RunMemory</th>
+                                            <th>User</th>
+                                            <th>Pro.</th>
+                                            <th>Compiler</th>
+                                            <th>Time</th>
+                                            <th>Result</th>
+                                            <th>RunTime</th>
+                                            <th>RunMemory</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -43,16 +34,6 @@
 
                                     </tbody>
                                 </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
 
 
 

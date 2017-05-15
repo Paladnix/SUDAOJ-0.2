@@ -22,81 +22,86 @@
     padding: 24px 40px 20px;
     position: relative;
 }
-/*
-.login-form:before {
-content: "";
-border-style: solid;
-border-width: 12px 12px 12px 0;
-border-color: transparent #eceff1 transparent transparent;
-height: 0px;
-position: absolute;
-left: -12px;
-top: 35px;
-width: 0;
--webkit-transform: rotate(360deg); 
+.login-form .login-field {
+    border-color: transparent;
+    font-size: 17px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+    text-indent: 3px;
+    width: 100%; 
 }
- */
-    .login-form .login-field {
-        border-color: transparent;
-        font-size: 17px;
-        padding-bottom: 11px;
-        padding-top: 11px;
-        text-indent: 3px;
-        width: 100%; 
-    }
-    .login-form .login-field:focus + .login-field-icon {
-        color: #1abc9c; 
-    }
+.login-form .login-field:focus + .login-field-icon {
+    color: #1abc9c; 
+}
 
-    .login-link {
-        color: #bfc9ca;
-        display: block;
-        font-size: 13px;
-        margin-top: 15px;
-        text-align: center; 
-    }
+.login-link {
+    color: #bfc9ca;
+    display: block;
+    font-size: 13px;
+    margin-top: 15px;
+    text-align: center; 
+}
 
-    .btn-block{
-        margin:0px auto;
-        width:70%;
-    }
-    .radio-pos{
-        margin:10px auto;
-        width:40%;
-    }
+.btn-block{
+    margin:0px auto;
+    width:70%;
+}
+.radio-pos{
+    margin:10px auto;
+    width:40%;
+}
 
 
-    /* 标签球 */
+/* 标签球 */
 
 
-    .tagscloud{
-        margin:0 0 0 -40px;
-        overflow:visable;
-    }
-    .tagscloud a:hover {
-        border: 1px solid #eee; 
-        background: #FFF; 
-    }
-    .tagscloud .blue {color:blue;}
-    .tagscloud .red {color:red;}
-    .tagscloud .green {color:green;}
+.tagscloud{
+    margin:0 0 0 -40px;
+    overflow:visable;
+}
+.tagscloud a:hover {
+    border: 1px solid #eee; 
+    background: #FFF; 
+}
+.tagscloud .blue {color:blue;}
+.tagscloud .red {color:red;}
+.tagscloud .green {color:green;}
 
 
-    .middle{
-        margin: 0px auto;
-        width:70%;
-    }
+.middle{
+    margin: 0px auto;
+    width:100%;
+    border-bottom: 0px solid #ddd;
 
-div .middle{
-        margin: 0px auto;
-        width: auto;
-    }
+}
 
-    .progress{
-        border-radius:30px;
-    }
+div > .middle{
+    margin: 0px auto;
+    width: auto;
+    border-bottom: 0px solid #ddd;
+}
 
-    .btn-list{
-        margin: 5px 5px;
+.progress{
+    border-radius:5px;
+}
 
-    }
+.btn-list{
+    margin: 5px 5px;
+
+}
+.time{
+    padding: 10px;
+    width:100%;
+}
+.time > .left{
+    left:0px;
+}
+.time > .right{
+    float:right;
+}
+
+.list > .block{
+    padding: 20px 20px;
+    background-color: #F3F3F3;
+    border: 0px solid #2a2d2c;
+}

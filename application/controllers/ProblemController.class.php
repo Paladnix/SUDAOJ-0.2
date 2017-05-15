@@ -188,6 +188,21 @@ class ProblemController extends Controller{
             exit("The service has not got message from the http url by the method of POST.");
         }
 
+        if(isset($data['cid'])){
+            $where = array('cid' => $data['cid']);
+            $result = (new ContestModel)->select($where);
+            if($result == array()){
+                $this->error("没有相应的比赛");
+                return ;
+            }
+            $timeEnd = $result[0]['timeEnd'];
+            if(strtotime($timeEnd) < strtotime(date("y-m-d H:i:s")))
+            {
+                echo "超出比赛时间请到题库中提交";
+                return ;
+            }
+        }
+
         $result = (new StatusModel)->add($data);
 
         if( $result == array() ){
