@@ -26,7 +26,7 @@ if( isset($vars['problems']) ){
                 $Alp = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'Y', 'V', 'W', 'X', 'Y', 'Z');
                 $cnt = 0;
                              foreach($vars['problems'] as $key => $value){ ?>
-                             <a  class="btn btn-primary-alt " href="<?php echo APP_URL ?>/contest/showProblem/<?php echo "pid=$key/cid=".$vars['cid']; ?>" ><?php echo $Alp[$cnt++]; ?></a>
+                             <a  id="<?php echo $key?>" class="btn btn-primary-alt " href="<?php echo APP_URL ?>/contest/showProblem/<?php echo "pid=$key/cid=".$vars['cid']; ?>" ><?php echo $Alp[$cnt++]; ?></a>
                                 
                              <?php if($cnt%3 == 0) echo "<br><br>"; } } }?>
         </div>

@@ -58,9 +58,9 @@ class Judge
         }
         else if( $this->Compiler == "python3" )
         {
-            $sh = "mv $this->Code $this->Compile_out";
+            $sh = "mv $this->Code $this->Compile_out$this->rid";
 
-            $Exe = $this->Code;
+            $this->Exe = $this->Compile_out.$this->rid;
         }
 
         if( JUDGE_DEBUG ) print_r($sh);
@@ -95,7 +95,7 @@ class Judge
         }
         else if( $this->Compiler == "python3" )
         {
-            $Command = "python3";
+            $Command = "python3.5";
 
             $sh = APP_PATH."application/controllers/Run_Py.sh $this->IN $Command $this->Exe $this->User_out $this->Time $Mem";
         }
@@ -136,7 +136,7 @@ class Judge
             return array("result" => "MLE", "rmemory" => $memory_use, "rtime" => $time_use);
         }
 
-        if( $time_use >= $this->Time )
+        if( $time_use >= $this->Time*1000 )
         { 
             return array("result" => "TLE", "rmemory" => $memory_use, "rtime" => $time_use);
         }

@@ -42,7 +42,7 @@
 
             <tr id="<?php echo $key?>">
                 <?php if(isset($_SESSION['username']) && $vars['author'] == $_SESSION['username']) { ?>
-                    <td id="xx" ><label  class="btn btn-danger-alt"><i class="fa fa-times"></i></label></td>
+                    <td class="xx" ><label  class="btn btn-danger-alt"><i class="fa fa-times"></i></label></td>
                 <?php } ?>
                 <td><?php echo $value['accepted']."/".$value['submited']; ?></td>
                 <td><?php if($value['status'] == "accepted") echo "<i class='fa fa-check' style='color:green;'></i>"; else if($value['status']=="submited") echo "<i class='fa fa-close' style='color:red;'></i>" ?></td>
@@ -75,10 +75,10 @@
 
 <script>
 $(function(){
-    $("#pros #xx").click(function(e){
+    $(".xx").click(function(e){
         var id = $(e.target).parent().attr('id');
         $(e.target).parent().remove();
-        $("ul.menu-root li[id="+id+"List"+"]").remove();
+        $(".list a[id="+id+"]").remove();
 
         $.ajax({
             url:"<?php echo APP_URL ?>/contest/rmProblem/cid=<?php echo $vars['cid'];?>/pid="+id ,

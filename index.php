@@ -14,7 +14,6 @@ define ('APP_PATH', __DIR__.'/');
 
 //  define ('APP_DEBUG_FRA', true);
 
-
 //define('JUDGE_DEBUG', true);
 defined ('JUDGE_DEBUG') or define ( 'JUDGE_DEBUG', false);
 
