@@ -135,17 +135,18 @@ class ContestController extends Controller{
                                         $problems[$pid]['status'] = "accepted";
                                 }
                             }
-                            $data = array("pid" => $pid, "cid" => $_SESSION['cid']);
-                            $presult = (new StatusModel)->select($data);
+                            if(isset($_SESSION['cid'])){ 
+                                $data = array("pid" => $pid, "cid" => $_SESSION['cid']);
+                                $presult = (new StatusModel)->select($data);
 
-                            $problems[$pid]['submited'] = 0;
-                            $problems[$pid]['accepted'] = 0;
-                            foreach($presult as $srow){
-                                if($srow['status'] == "AC")
-                                    $problems[$pid]['accepted']++;
-                                $problems[$pid]['submited']++;
+                                $problems[$pid]['submited'] = 0;
+                                $problems[$pid]['accepted'] = 0;
+                                foreach($presult as $srow){
+                                    if($srow['status'] == "AC")
+                                        $problems[$pid]['accepted']++;
+                                    $problems[$pid]['submited']++;
+                                }
                             }
-
                         }
                         $this->assign("problems", $problems);
                     }
