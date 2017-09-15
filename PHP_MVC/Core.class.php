@@ -5,7 +5,7 @@
  */
 
 class Core{
-
+    
     public function run(){
 
         // 将自己注册在下来，如果有没有加载的类就执行$this->loadClass方法
@@ -22,7 +22,7 @@ class Core{
 
     public static function loadClass( $class ){
 
-        if( APP_DEBUG_FRA )  echo "<br>loadClass: $class <br>";
+        if( APP_DEBUG_FRA )  LOGGER::DEBUG(" loadClass: $class");
 
         $frameworks = FRAME_PATH.$class.'.class.php';
 
@@ -36,35 +36,32 @@ class Core{
             
             include $frameworks; 
 
-            if( APP_DEBUG_FRA ) echo "<br> include PHP_MVC frameworks: $frameworks success.<br>";
+            if( APP_DEBUG_FRA ) LOGGER::DEBUG(" include PHP_MVC frameworks: $frameworks success.");
 
         }
         else if( file_exists( $controllers ) ){
             
             include $controllers;
 
-            if( APP_DEBUG_FRA ) echo "<br> include controller: $controllers success. <br>";
+            if( APP_DEBUG_FRA ) LOGGER::DEBUG( " include controller: $controllers success.");
 
         }
         else if( file_exists( $models ) ){
             
             include $models;
 
-            if( APP_DEBUG_FRA ) echo "<br> include models: $models success.<br>";
+            if( APP_DEBUG_FRA )  LOGGER::DEBUG(" include models: $models success.");
 
         }
         else if( file_exists( $views ) ){
             
             include $views;
 
-            if( APP_DEBUG_FRA ) echo "<br> include views: $models <br>";
+            if( APP_DEBUG_FRA ) LOGGER::DEBUG(" include views: $models success. ");
 
         }
         else{
-            // deal with this error;
-            // report this error;
-            if( APP_DEBUG_FRA ) echo "<br> Can't find the class: $class <br>";
-
+            LOGGER::ERROR(" Can't find the class: $class. ");
         }
     }
 
@@ -85,7 +82,7 @@ class Core{
 
             ini_set( 'log_errors', 'On' );
 
-            ini_set( 'error_log', RUNTIME_PATH.'logs/error.log' );
+            ini_set( 'error_log', LOG_PATH.'error.log' );
         }
     }
 
@@ -197,7 +194,8 @@ class Core{
         }
         else {
 
-            exit( "$controller 控制器不存在 $action 函数。");
+            LOGGER::ERROR("$controller 控制器不存在 $action 函数。");
+            exit("System Error! Connect the system administrator, please.");
         }
     }
 

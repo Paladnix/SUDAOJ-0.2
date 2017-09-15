@@ -34,7 +34,8 @@ class UserController extends Controller{
         	$data['sex'] = $_POST["sex"];
         }
         else {
-            exit("The service has not got message from the http url by the method of POST.");
+            LOGGER::ERROR("The service has not got message from the http url by the method of POST.");
+            exit("System Error! Connect the system administrator, please.");
         }
 
         $result = (new UserModel)->add( $data );
@@ -59,7 +60,8 @@ class UserController extends Controller{
             $data['password'] = $_POST['password'];
         }
         else {
-            exit("The service has not got message from the http url by the method of POST.");
+            LOGGER::ERROR("The service has not got message from the http url by the method of POST.");
+            exit("System Error! Connect the system administrator, please.");
         }
         
         $tmp_data = array();
@@ -82,6 +84,7 @@ class UserController extends Controller{
                 }
                 else $this->error("密码错误");
         }
+        return ;
     }
     public function logout(){
 

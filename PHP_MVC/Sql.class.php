@@ -6,6 +6,8 @@ class Sql {
     protected $_table;
     protected $_columnType = array();
 
+//    global $LOG;
+
     public function connect($host, $user, $pass, $dbname){
 
         try {
@@ -19,8 +21,8 @@ class Sql {
             if( APP_DEBUG ) $this->_dbHandle->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_WARNING);
 
         }catch ( PDOException $e){
-
-            exit( "<br><br><br><br><br> Connect Error: $e->getMessage() <br>" );
+            LOGGER::ERROR( "Connect Error: $e->getMessage()" );
+            exit("System Error! Connect the system administrator, please.");
         }
     }
 
@@ -43,7 +45,7 @@ class Sql {
 
     public function querySQL( $sql ){
 
-        if(APP_DEBUG_FRA) print_r( $sql);
+        if(APP_DEBUG_FRA) LOGGER::DEBUG( $sql );
 
         try{
 
@@ -53,7 +55,8 @@ class Sql {
 
         }catch(PDOException $e){
 
-            exit("<br><br><br><br> $sql has throw an error: $e->getMessage()  <br>");
+            LOGGER::ERROR("$sql has throw an error: $e->getMessage().");
+            exit("System Error! Connect the system administrator, please.");
         }
 
         return $sth->rowCount();
@@ -63,7 +66,7 @@ class Sql {
 
         try{
 
-            if( APP_DEBUG_FRA ) echo "<br><br>$sql<br><br>";
+            if( APP_DEBUG_FRA ) LOGGER::DEBUG($sql);
 
             $sth = $this->_dbHandle->prepare($sql);
 
@@ -71,7 +74,8 @@ class Sql {
 
         }catch(PDOException $e){
 
-            exit("<br><br><br><br>$sql has throw an error: $e->getMessage() <br><br>");
+            LOGGER::ERROR("$sql has throw an error: $e->getMessage(). ");
+            exit("System Error! Connect the system administrator, please.");
         }
 
         return $sth->fetchAll();

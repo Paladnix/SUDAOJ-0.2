@@ -33,7 +33,8 @@ class IndexController extends Controller{
         	$data['sex'] = $_POST["sex"];
         }
         else {
-            exit("The service has not got message from the http url by the method of POST.");
+            LOGGER::ERROR("The service has not got message from the http url by the method of POST.");
+            exit("System Error! Connect the system administrator, please.");
         }
 
         $result = (new UserModel)->add( $data );
@@ -57,7 +58,8 @@ class IndexController extends Controller{
             $data['password'] = $_POST['password'];
         }
         else {
-            exit("The service has not got message from the http url by the method of POST.");
+            LOGGER::ERROR("The service has not got message from the http url by the method of POST.");
+            exit("System Error! Connect the system administrator, please.");
         }
         
         $tmp_data = array();

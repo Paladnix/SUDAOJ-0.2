@@ -6,6 +6,8 @@ class Controller{
     protected $_action;
     protected $_view;
     
+    //global    $LOG;
+
 
     // View 和 Controller拥有同样的名称。
     public function __construct( $controller=NULL, $action=NULL){

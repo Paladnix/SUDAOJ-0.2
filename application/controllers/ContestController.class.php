@@ -29,7 +29,8 @@ class ContestController extends Controller{
 
         }
         else {
-            exit("The service has not got message from the http url by the method of POST.");
+            LOGGER::ERROR("The service has not got message from the http url by the method of POST.");
+            exit("System Error! Connect the system administrator, please.");
         }
 
         $result = (new ContestModel)->add( $data );
@@ -74,7 +75,8 @@ class ContestController extends Controller{
 
         }
         else {
-            exit("The service has not got message from the http url by the method of POST.");
+            LOGGER::ERROR("The service has not got message from the http url by the method of POST.");
+            exit("System Error! Connect the system administrator, please.");
         }
 
         $result = (new ContestModel)->update( $data , $where);
@@ -108,7 +110,7 @@ class ContestController extends Controller{
                         $tmp = explode("#", $value);
                         $tmp = array_filter( $tmp );
 
-                        if( APP_DEBUG_FRA ) print_r($tmp);
+                        if( APP_DEBUG ) LOGGER::DENUG($tmp);
 
                         $problems = array();
 
@@ -118,7 +120,7 @@ class ContestController extends Controller{
 
                             $presult = (new ProblemModel)->select($data);
 
-                            if( APP_DEBUG_FRA ) print_r($presult);
+                            if( APP_DEBUG ) LOGGER::DEBUG($presult);
 
                             $problems[$pid]  = array("pname" => $presult[0]['pname']);
 
@@ -267,7 +269,7 @@ class ContestController extends Controller{
             return ;
         }
 
-        if(APP_DEBUG_FRA) print_r($result);
+        if(APP_DEBUG) LOGGER::DEBUG($result);
 
         $this->assign("row", $result);
 
@@ -289,19 +291,16 @@ class ContestController extends Controller{
                 $where[$tmp[0]] = $tmp[1];
 
         }
-        if(APP_DEBUG_FRA) print_r($data);
-        if(APP_DEBUG_FRA) print_r($where);
+        if(APP_DEBUG) LOGGER::DEBUG($data);
+        if(APP_DEBUG) LOGGER::DEBUG($where);
 
         $result = (new ContestModel)->rmProblem($data, $where); 
 
         if($result == 0){
 
-            echo "gengxin shibai ";
             $this->error("删除题目失败");
-
             return ;
         }
-
         return ;
     }
 

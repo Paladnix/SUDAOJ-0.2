@@ -63,13 +63,13 @@ class Judge
             $this->Exe = $this->Compile_out.$this->rid;
         }
 
-        if( JUDGE_DEBUG ) print_r($sh);
+        if( JUDGE_DEBUG ) LOGGER::DEBUG($sh);
 
         $result = "";
 
         exec("$sh 2>&1", $result);
 
-        if (JUDGE_DEBUG ) print_r($result);
+        if (JUDGE_DEBUG ) LOGGER::DEBUG($result);
 
         if($result == array() )
 
@@ -99,11 +99,11 @@ class Judge
 
             $sh = APP_PATH."application/controllers/Run_Py.sh $this->IN $Command $this->Exe $this->User_out $this->Time $Mem";
         }
-        if(JUDGE_DEBUG) print_r($sh);
+        if(JUDGE_DEBUG) LOGGER::DEBUG($sh);
 
         exec("$sh 2>&1", $result);
         if(JUDGE_DEBUG)
-            print_r($result);
+            LOGGER::DEBUG($result);
         // 成功运行，判断是否超时或超空间
         $Count = count($result);
 
@@ -129,7 +129,7 @@ class Judge
             $memory_use = $mes[1];
         else $memory_use = 0;
         
-        if(JUDGE_DEBUG) print_r($memory_use);
+        if(JUDGE_DEBUG) LOGGER::DEBUG($memory_use);
 
         if( $memory_use >= $this->Memory )
         {
@@ -155,12 +155,12 @@ class Judge
         $sh = " diff $this->OUT $this->User_out";
 
         if(JUDGE_DEBUG)
-            print_r($sh);
+            LOGGER::DEBUG($sh);
 
         exec("$sh 2>&1", $result);
 
         if(JUDGE_DEBUG)
-            print_r($result);
+            LOGGER::DEBUG($result);
         if($result == array())
 
             return 4; // AC

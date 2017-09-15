@@ -1,0 +1,319 @@
+[INFO][2017-09-15 16:40:27]: <br> include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.<br>
+[INFO][2017-09-15 16:40:27]: <br> include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.<br>
+[DEBUG][2017-09-15 17:02:05]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:02:05]:  include controller: /var/www/html/OJ/application/controllers/IndexController.class.php success.
+[DEBUG][2017-09-15 17:02:05]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:02:05]:  include views: /var/www/html/OJ/application/models/IndexView.class.php success. 
+[DEBUG][2017-09-15 17:02:08]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:02:08]:  include controller: /var/www/html/OJ/application/controllers/IndexController.class.php success.
+[DEBUG][2017-09-15 17:02:08]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:02:08]:  include views: /var/www/html/OJ/application/models/IndexView.class.php success. 
+[DEBUG][2017-09-15 17:04:23]:  loadClass: IndexController
+[DEBUG][2017-09-15 17:04:23]:  loadClass: Controller
+[DEBUG][2017-09-15 17:04:23]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:04:23]:  include controller: /var/www/html/OJ/application/controllers/IndexController.class.php success.
+[DEBUG][2017-09-15 17:04:23]:  loadClass: IndexView
+[DEBUG][2017-09-15 17:04:23]:  loadClass: View
+[DEBUG][2017-09-15 17:04:23]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:04:23]:  include views: /var/www/html/OJ/application/models/IndexView.class.php success. 
+[DEBUG][2017-09-15 17:04:24]:  loadClass: IndexController
+[DEBUG][2017-09-15 17:04:24]:  loadClass: Controller
+[DEBUG][2017-09-15 17:04:24]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:04:24]:  include controller: /var/www/html/OJ/application/controllers/IndexController.class.php success.
+[DEBUG][2017-09-15 17:04:24]:  loadClass: IndexView
+[DEBUG][2017-09-15 17:04:24]:  loadClass: View
+[DEBUG][2017-09-15 17:04:24]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:04:24]:  include views: /var/www/html/OJ/application/models/IndexView.class.php success. 
+[DEBUG][2017-09-15 17:04:26]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:04:26]:  loadClass: Controller
+[DEBUG][2017-09-15 17:04:26]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:04:26]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:04:26]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:04:26]:  loadClass: View
+[DEBUG][2017-09-15 17:04:26]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:04:26]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:04:26]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:04:26]:  loadClass: Model
+[DEBUG][2017-09-15 17:04:26]:  loadClass: Sql
+[DEBUG][2017-09-15 17:04:26]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:04:26]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:04:26]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:07:04]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:07:04]:  loadClass: Controller
+[DEBUG][2017-09-15 17:07:04]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:07:04]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:07:04]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:07:04]:  loadClass: View
+[DEBUG][2017-09-15 17:07:04]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:07:04]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:07:04]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:07:04]:  loadClass: Model
+[DEBUG][2017-09-15 17:07:04]:  loadClass: Sql
+[DEBUG][2017-09-15 17:07:04]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:07:04]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:07:04]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:07:06]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:07:06]:  loadClass: Controller
+[DEBUG][2017-09-15 17:07:06]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:07:06]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:07:06]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:07:06]:  loadClass: View
+[DEBUG][2017-09-15 17:07:06]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:07:06]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:07:06]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:07:06]:  loadClass: Model
+[DEBUG][2017-09-15 17:07:06]:  loadClass: Sql
+[DEBUG][2017-09-15 17:07:06]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:07:06]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:07:06]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:08:19]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:08:19]:  loadClass: Controller
+[DEBUG][2017-09-15 17:08:19]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:08:19]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:08:19]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:08:19]:  loadClass: View
+[DEBUG][2017-09-15 17:08:19]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:08:19]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:08:19]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:08:19]:  loadClass: Model
+[DEBUG][2017-09-15 17:08:19]:  loadClass: Sql
+[DEBUG][2017-09-15 17:08:19]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:08:19]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:08:19]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:11:10]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:11:10]:  loadClass: Controller
+[DEBUG][2017-09-15 17:11:10]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:11:10]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:11:10]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:11:10]:  loadClass: View
+[DEBUG][2017-09-15 17:11:10]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:11:10]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:11:10]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:11:10]:  loadClass: Model
+[DEBUG][2017-09-15 17:11:10]:  loadClass: Sql
+[DEBUG][2017-09-15 17:11:10]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:11:10]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:11:10]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:11:10]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 17:11:12]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:11:12]:  loadClass: Controller
+[DEBUG][2017-09-15 17:11:12]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:11:12]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:11:12]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:11:12]:  loadClass: View
+[DEBUG][2017-09-15 17:11:12]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:11:12]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:11:12]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:11:12]:  loadClass: Model
+[DEBUG][2017-09-15 17:11:12]:  loadClass: Sql
+[DEBUG][2017-09-15 17:11:12]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:11:12]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:11:12]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:11:12]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 17:28:40]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:28:40]:  loadClass: Controller
+[DEBUG][2017-09-15 17:28:40]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:28:40]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:28:40]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:28:40]:  loadClass: View
+[DEBUG][2017-09-15 17:28:40]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:28:40]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:28:40]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:28:40]:  loadClass: Model
+[DEBUG][2017-09-15 17:28:40]:  loadClass: Sql
+[DEBUG][2017-09-15 17:28:40]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:28:40]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:28:40]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:28:40]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 17:28:41]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:28:41]:  loadClass: Controller
+[DEBUG][2017-09-15 17:28:41]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:28:41]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:28:41]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:28:41]:  loadClass: View
+[DEBUG][2017-09-15 17:28:41]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:28:41]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:28:41]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:28:41]:  loadClass: Model
+[DEBUG][2017-09-15 17:28:41]:  loadClass: Sql
+[DEBUG][2017-09-15 17:28:41]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:28:41]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:28:41]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:28:41]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 17:32:15]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:32:15]:  loadClass: Controller
+[DEBUG][2017-09-15 17:32:15]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:32:15]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:32:15]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:32:15]:  loadClass: View
+[DEBUG][2017-09-15 17:32:15]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:32:15]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:32:15]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:32:15]:  loadClass: Model
+[DEBUG][2017-09-15 17:32:15]:  loadClass: Sql
+[DEBUG][2017-09-15 17:32:15]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:32:15]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:32:15]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:32:15]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 17:32:16]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:32:16]:  loadClass: Controller
+[DEBUG][2017-09-15 17:32:16]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:32:16]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:32:16]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:32:16]:  loadClass: View
+[DEBUG][2017-09-15 17:32:16]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:32:16]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:32:16]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:32:16]:  loadClass: Model
+[DEBUG][2017-09-15 17:32:16]:  loadClass: Sql
+[DEBUG][2017-09-15 17:32:16]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:32:16]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:32:16]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:32:16]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 17:54:06]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:54:06]:  loadClass: Controller
+[DEBUG][2017-09-15 17:54:06]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:54:06]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:54:06]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:54:06]:  loadClass: View
+[DEBUG][2017-09-15 17:54:06]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:54:06]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:54:06]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:54:06]:  loadClass: Model
+[DEBUG][2017-09-15 17:54:06]:  loadClass: Sql
+[DEBUG][2017-09-15 17:54:06]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:54:06]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:54:06]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:54:06]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 17:54:08]:  loadClass: ProblemController
+[DEBUG][2017-09-15 17:54:08]:  loadClass: Controller
+[DEBUG][2017-09-15 17:54:08]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 17:54:08]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 17:54:08]:  loadClass: ProblemView
+[DEBUG][2017-09-15 17:54:08]:  loadClass: View
+[DEBUG][2017-09-15 17:54:08]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 17:54:08]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 17:54:08]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 17:54:08]:  loadClass: Model
+[DEBUG][2017-09-15 17:54:08]:  loadClass: Sql
+[DEBUG][2017-09-15 17:54:08]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 17:54:08]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 17:54:08]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 17:54:08]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 18:01:55]:  loadClass: ProblemController
+[DEBUG][2017-09-15 18:01:55]:  loadClass: Controller
+[DEBUG][2017-09-15 18:01:55]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 18:01:55]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 18:01:55]:  loadClass: ProblemView
+[DEBUG][2017-09-15 18:01:55]:  loadClass: View
+[DEBUG][2017-09-15 18:01:55]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 18:01:55]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 18:01:55]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 18:01:55]:  loadClass: Model
+[DEBUG][2017-09-15 18:01:55]:  loadClass: Sql
+[DEBUG][2017-09-15 18:01:55]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 18:01:55]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 18:01:55]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 18:01:55]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 18:01:56]:  loadClass: ProblemController
+[DEBUG][2017-09-15 18:01:56]:  loadClass: Controller
+[DEBUG][2017-09-15 18:01:56]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 18:01:56]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 18:01:56]:  loadClass: ProblemView
+[DEBUG][2017-09-15 18:01:56]:  loadClass: View
+[DEBUG][2017-09-15 18:01:56]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 18:01:56]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 18:01:56]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 18:01:56]:  loadClass: Model
+[DEBUG][2017-09-15 18:01:56]:  loadClass: Sql
+[DEBUG][2017-09-15 18:01:56]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 18:01:56]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 18:01:56]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 18:01:56]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 18:01:58]:  loadClass: IndexController
+[DEBUG][2017-09-15 18:01:58]:  loadClass: Controller
+[DEBUG][2017-09-15 18:01:58]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 18:01:58]:  include controller: /var/www/html/OJ/application/controllers/IndexController.class.php success.
+[DEBUG][2017-09-15 18:01:58]:  loadClass: IndexView
+[DEBUG][2017-09-15 18:01:58]:  loadClass: View
+[DEBUG][2017-09-15 18:01:58]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 18:01:58]:  include views: /var/www/html/OJ/application/models/IndexView.class.php success. 
+[DEBUG][2017-09-15 18:02:05]:  loadClass: ProblemController
+[DEBUG][2017-09-15 18:02:05]:  loadClass: Controller
+[DEBUG][2017-09-15 18:02:05]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 18:02:05]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 18:02:05]:  loadClass: ProblemView
+[DEBUG][2017-09-15 18:02:05]:  loadClass: View
+[DEBUG][2017-09-15 18:02:05]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 18:02:05]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 18:02:05]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 18:02:05]:  loadClass: Model
+[DEBUG][2017-09-15 18:02:05]:  loadClass: Sql
+[DEBUG][2017-09-15 18:02:05]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 18:02:05]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 18:02:05]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 18:02:05]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 18:07:50]:  loadClass: ProblemController
+[DEBUG][2017-09-15 18:07:50]:  loadClass: Controller
+[DEBUG][2017-09-15 18:07:50]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 18:07:50]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 18:07:50]:  loadClass: ProblemView
+[DEBUG][2017-09-15 18:07:50]:  loadClass: View
+[DEBUG][2017-09-15 18:07:50]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 18:07:50]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 18:07:50]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 18:07:50]:  loadClass: Model
+[DEBUG][2017-09-15 18:07:50]:  loadClass: Sql
+[DEBUG][2017-09-15 18:07:50]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 18:07:50]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 18:07:50]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 18:07:50]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 18:07:50]: Array
+[DEBUG][2017-09-15 18:08:47]:  loadClass: ProblemController
+[DEBUG][2017-09-15 18:08:47]:  loadClass: Controller
+[DEBUG][2017-09-15 18:08:47]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 18:08:47]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 18:08:47]:  loadClass: ProblemView
+[DEBUG][2017-09-15 18:08:47]:  loadClass: View
+[DEBUG][2017-09-15 18:08:47]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 18:08:47]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 18:08:47]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 18:08:47]:  loadClass: Model
+[DEBUG][2017-09-15 18:08:47]:  loadClass: Sql
+[DEBUG][2017-09-15 18:08:47]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 18:08:47]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 18:08:47]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 18:08:47]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 18:08:47]: Array
+[DEBUG][2017-09-15 18:12:26]:  loadClass: ProblemController
+[DEBUG][2017-09-15 18:12:26]:  loadClass: Controller
+[DEBUG][2017-09-15 18:12:26]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 18:12:26]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 18:12:26]:  loadClass: ProblemView
+[DEBUG][2017-09-15 18:12:26]:  loadClass: View
+[DEBUG][2017-09-15 18:12:26]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 18:12:26]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 18:12:26]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 18:12:26]:  loadClass: Model
+[DEBUG][2017-09-15 18:12:26]:  loadClass: Sql
+[DEBUG][2017-09-15 18:12:26]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 18:12:26]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 18:12:26]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 18:12:26]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 18:12:26]: Array
+[DEBUG][2017-09-15 18:12:27]:  loadClass: ProblemController
+[DEBUG][2017-09-15 18:12:27]:  loadClass: Controller
+[DEBUG][2017-09-15 18:12:27]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Controller.class.php success.
+[DEBUG][2017-09-15 18:12:27]:  include controller: /var/www/html/OJ/application/controllers/ProblemController.class.php success.
+[DEBUG][2017-09-15 18:12:27]:  loadClass: ProblemView
+[DEBUG][2017-09-15 18:12:27]:  loadClass: View
+[DEBUG][2017-09-15 18:12:27]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/View.class.php success.
+[DEBUG][2017-09-15 18:12:27]:  include views: /var/www/html/OJ/application/models/ProblemView.class.php success. 
+[DEBUG][2017-09-15 18:12:27]:  loadClass: ProblemModel
+[DEBUG][2017-09-15 18:12:27]:  loadClass: Model
+[DEBUG][2017-09-15 18:12:27]:  loadClass: Sql
+[DEBUG][2017-09-15 18:12:27]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Sql.class.php success.
+[DEBUG][2017-09-15 18:12:27]:  include PHP_MVC frameworks: /var/www/html/OJ/PHP_MVC/Model.class.php success.
+[DEBUG][2017-09-15 18:12:27]:  include models: /var/www/html/OJ/application/models/ProblemModel.class.php success.
+[DEBUG][2017-09-15 18:12:27]: select pid, pname, ratio, accepted, submited, tag from `problem` where visable='1';
+[DEBUG][2017-09-15 18:12:27]: Array

@@ -14,7 +14,8 @@ class StatusModel extends Model {
 
         }catch(PDOException $e){
 
-            exit("<br><br><br><br> $sql has throw an error: $e->getMessage()  <br>");
+            LOGGER::DEBUG("$sql has throw an error: $e->getMessage().");
+            exit("System Error! Connect the system administrator, please.");
         }
         return $this->_dbHandle->lastInsertId();
     }

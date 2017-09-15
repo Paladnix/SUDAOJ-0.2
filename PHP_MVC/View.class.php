@@ -7,13 +7,6 @@ class View{
     protected $_controller;
     protected $_action;
 
-    /*
-    protected $defaultHeader = '';
-    protected $defaultFooter = '';
-    protected $defaultLayout = '';
-    protected $defaultError  = '';
-     */
-
 
     function __construct( $controller=NULL, $action=NULL ){
 
@@ -21,12 +14,6 @@ class View{
 
         $this->_action = $action;
 
-        /*
-        $this->defaultHeader = APP_PATH.'application/views/Index/header.php';
-        $this->defaultFooter = APP_PATH.'application/views/Index/footer.php';
-        $this->defaultLayout = APP_PATH.'application/views/Index/index.php';
-        $this->defaultError  = APP_PATH.'application/views/Index/error.php';
-         */
     }
 
 
@@ -34,7 +21,7 @@ class View{
 
         $this->variable[$name] = $value;
 
-        if( APP_DEBUG_FRA ) print_r($value);
+        if( APP_DEBUG_FRA ) LOGGER::DEBUG($value);
     }
 
     public function get($name){
@@ -48,17 +35,10 @@ class View{
         $vars = $this->variable;
 
         if(file_exists ($file)){
-
-            if( APP_DEBUG_FRA ) echo "<br> include $file success.<br>";
-
             include( $file );
-
         }
         else{
-
-            // include($this->defaultError);
-
-            echo "<br>include $file failed. Can't find it.<br>";
+            LOGGER::ERROR(" include $file failed. Can't find it.");
         }
 
     }

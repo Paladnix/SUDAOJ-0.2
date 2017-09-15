@@ -36,7 +36,8 @@ class ProblemController extends Controller{
                 $data['cid'] = $_POST["cid"];
         }
         else {
-            exit("The service has not got message from the http url by the method of POST.");
+            LOGGER::ERROR("The service has not got message from the http url by the method of POST.");
+            exit("System Error! Connect the system administrator, please.");
         }
 
         $result = (new ProblemModel)->add( $data );
@@ -150,11 +151,8 @@ class ProblemController extends Controller{
             foreach($params as $param){
 
                 $tmp = explode("=", $param);
-
                 $data[$tmp[0]] = $tmp[1];
-
             }
-
         $result = (new ProblemModel)->archive( $data );
 
         if($result == array()){
@@ -185,7 +183,8 @@ class ProblemController extends Controller{
 
         }
         else {
-            exit("The service has not got message from the http url by the method of POST.");
+            LOGGER::ERROR("The service has not got message from the http url by the method of POST.");
+            exit("System Error! Connect the system administrator, please.");
         }
 
         if(isset($data['cid'])){
@@ -292,7 +291,7 @@ class ProblemController extends Controller{
          *  二者都没有的为绝对路径. 
          */
 
-        if(APP_DEBUG_FRA) print_r($data);
+        if(APP_DEBUG) LOGGER::DEBUG($data);
 
         $data = $this->judge($data);
 
@@ -334,7 +333,10 @@ class ProblemController extends Controller{
 
         }
 
-        else echo "System error";
+        else {
+            LOGGER::ERROR("System Error");
+            exit("System Error! Connect the system administrator, please.");
+        }
 
         return ;
     }
