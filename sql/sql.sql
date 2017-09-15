@@ -6,14 +6,14 @@ use `SDOJ`;
 
 create table user(
 
-	id varchar(20),
-	username varchar(32),
-	truename varchar(32),
-	password varchar(32),
+	id varchar(20)       comment '学号', 
+	username varchar(32) comment '用户名，自己起的名字',
+	truename varchar(32) comment '真实名字',
+	password varchar(32) comment '密码',
 	email varchar(64),
 	sex varchar(16),
 	tel varchar(32),
-	role int default '0',
+	role int default '0' comment '用户权限',
 	
     primary key(username)
     
@@ -33,10 +33,10 @@ create table problem(
 	outputCase blob,
 	timeLimit float default '1.0',
 	memoryLimit int default '65535',
-	author varchar(32),
-	cid int default '0',
-	visable int default '0',
-    tag varchar(2014) default "#",
+	author varchar(32)            comment 'username',
+	cid int default '0'           comment '所属比赛id',
+	visable int default '0'       comment '是否可见，默认是不可见',
+    tag varchar(2014) default "#" comment '题目标签',
 	
 	primary key(pid)
 
@@ -44,16 +44,16 @@ create table problem(
 
 create table status(
 
-	rid int unsigned auto_increment,
-	pid int NOT NULL, 
-	status varchar(32), 
-	rtime float,
-	rmemory int,
-	username varchar(32) not null,
+	rid int unsigned auto_increment comment '提交的ID',
+	pid int NOT NULL                comment '题目ID', 
+	status varchar(32)              comment '提交结果',         
+	rtime float                     comment '运行时间',
+	rmemory int                     comment '运行内存',
+	username varchar(32) not null, 
 	compiler varchar(16),
-	submitTime timestamp default CURRENT_TIMESTAMP,
-	codeLength int ,
-    cid int default 0,
+	submitTime timestamp default CURRENT_TIMESTAMP comment '提交的时间',
+	codeLength int                                 comment '代码长度',
+    cid int default 0                              comment '所属比赛',
     
 	primary key(rid)
 	
